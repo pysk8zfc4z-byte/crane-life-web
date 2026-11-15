@@ -1,0 +1,36 @@
+sfx.wav は、Kenney (www.kenney.nl) の効果音集から選んだ音を1つにまとめたもの（モノラル・32kHz に変換、前後の無音を切り、大きさをそろえた）。
+ライセンス：Creative Commons Zero (CC0) http://creativecommons.org/publicdomain/zero/1.0/
+  Impact Sounds 1.0 (2019)   https://kenney.nl/assets/impact-sounds
+  Interface Sounds 1.0 (2020) https://kenney.nl/assets/interface-sounds
+  RPG Audio 1.0 (2014)        https://kenney.nl/assets/rpg-audio
+
+使った音（ゲームでの名前 = 効果音集 / 元のファイル）：
+  metalLight0 = impact-sounds / impactMetal_light_000.ogg
+  metalLight1 = impact-sounds / impactMetal_light_001.ogg
+  metalLight2 = impact-sounds / impactMetal_light_002.ogg
+  metalLight3 = impact-sounds / impactMetal_light_003.ogg
+  metalLight4 = impact-sounds / impactMetal_light_004.ogg
+  metalMid0 = impact-sounds / impactMetal_medium_000.ogg
+  metalMid1 = impact-sounds / impactMetal_medium_003.ogg
+  metalHeavy0 = impact-sounds / impactMetal_heavy_001.ogg
+  wood0 = impact-sounds / impactWood_medium_000.ogg
+  wood1 = impact-sounds / impactWood_medium_002.ogg
+  wood2 = impact-sounds / impactWood_light_000.ogg
+  plank0 = impact-sounds / impactPlank_medium_000.ogg
+  plank1 = impact-sounds / impactPlank_medium_002.ogg
+  soft0 = impact-sounds / impactSoft_heavy_000.ogg
+  soft1 = impact-sounds / impactSoft_heavy_003.ogg
+  softLight0 = impact-sounds / impactSoft_medium_001.ogg
+  tin0 = impact-sounds / impactTin_medium_000.ogg
+  tin1 = impact-sounds / impactTin_medium_003.ogg
+  tin2 = impact-sounds / impactTin_medium_004.ogg
+  generic0 = impact-sounds / impactGeneric_light_000.ogg
+  generic1 = impact-sounds / impactGeneric_light_004.ogg
+  switch0 = interface-sounds / switch_002.ogg
+  switch1 = interface-sounds / switch_007.ogg
+  coins0 = rpg-audio / handleCoins.ogg
+  coins1 = rpg-audio / handleCoins2.ogg
+  metalClick = rpg-audio / metalClick.ogg
+  latch = rpg-audio / metalLatch.ogg
+  belt0 = rpg-audio / beltHandle1.ogg
+  belt1 = rpg-audio / beltHandle2.ogg
