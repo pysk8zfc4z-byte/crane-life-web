@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#0d0a1c">
+  <title>クレーン生活</title>
+  <script type="module" crossorigin src="./assets/index-CIhpusfZ.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-B_PyxJNO.css">
+</head>
+<body>
+  <div id="app">
+    <header class="hud">
+      <div class="wallet" aria-label="所持金">
+        <span class="yen">¥</span><strong id="money">3,000</strong>
+      </div>
+      <div class="credits" aria-label="残りプレイ回数"><span>残</span><strong id="credits">0</strong><span>回</span></div>
+      <nav>
+        <button id="shelf-open" class="chip" type="button">棚 <b id="shelf-count">0</b></button>
+        <button id="sound-open" class="chip" type="button">音</button>
+      </nav>
+    </header>
+
+    <div id="machines" class="machines" role="group" aria-label="台を選ぶ"></div>
+    <main id="stage" class="stage">
+      <div id="loading" class="loading">台を準備中…</div>
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+      <div id="views" class="views" role="group" aria-label="視点"></div>
+      <p class="drag-hint" id="drag-hint">ドラッグで回す・ピンチで拡大・2回タップで戻す</p>
+    </main>
+
+    <footer class="deck">
+      <div class="coins">
+        <button id="coin-100" class="coin" type="button"><span>¥100</span><small>1回</small></button>
+        <button id="coin-500" class="coin coin-bulk" type="button"><span>¥500</span><small>6回</small></button>
+        <button id="staff" class="staff" type="button">店員さんを呼ぶ</button>
+      </div>
+      <div class="buttons">
+        <button id="btn-x" class="arcade arcade-x" type="button" aria-label="右へ（押している間だけ動く）" disabled>
+          <span class="cap" aria-hidden="true"><svg class="arrow" viewBox="0 0 100 100"><path d="M16 39 H54 V20 L86 50 L54 80 V61 H16 Z"/></svg></span>
+        </button>
+        <button id="btn-z" class="arcade arcade-z" type="button" aria-label="奥へ（離すと下がる）" disabled>
+          <span class="cap" aria-hidden="true"><svg class="arrow arrow-up" viewBox="0 0 100 100"><path d="M16 39 H54 V20 L86 50 L54 80 V61 H16 Z"/></svg></span>
+        </button>
+      </div>
+      <button id="take" class="take" type="button" hidden>取り出し口を開ける</button>
+    </footer>
+  </div>
+
+  <dialog id="reveal" class="sheet">
+    <div class="reveal-card">
+      <p class="reveal-kicker" id="reveal-kicker">ゲット！</p>
+      <img id="reveal-art" alt="" width="200" height="280">
+      <h2 id="reveal-name"></h2>
+      <p class="reveal-price">今日の買取 <strong id="reveal-price"></strong></p>
+      <div class="sheet-actions">
+        <button id="reveal-keep" class="primary" type="button">棚に飾る</button>
+        <button id="reveal-sell" class="secondary" type="button">すぐ売る</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="shelf" class="sheet">
+    <div class="shelf-head">
+      <h2>景品の棚</h2>
+      <p id="series-progress"></p>
+      <button id="shelf-close" class="chip" type="button">閉じる</button>
+    </div>
+    <div id="shelf-items" class="shelf-items"></div>
+    <p class="shelf-note">買取の値段は毎日かわります。</p>
+  </dialog>
+
+  <dialog id="sound" class="sheet">
+    <div class="shelf-head"><h2>音の設定</h2><button id="sound-close" class="chip" type="button">閉じる</button></div>
+    <label class="check"><input id="sound-on" type="checkbox" checked> 音を出す</label>
+    <div class="levels">
+      <label for="lv-mech">機械音<small>モーター・鎖</small></label><input id="lv-mech" data-bus="mech" type="range" min="0" max="100">
+      <label for="lv-hit">手ごたえ<small>フック・箱・取り出し口</small></label><input id="lv-hit" data-bus="hit" type="range" min="0" max="100">
+      <label for="lv-jingle">ジングル<small>コイン・獲得</small></label><input id="lv-jingle" data-bus="jingle" type="range" min="0" max="100">
+      <label for="lv-amb">店内<small>ざわめき</small></label><input id="lv-amb" data-bus="amb" type="range" min="0" max="100">
+    </div>
+    <button id="sound-default" class="chip" type="button">初期値に戻す</button>
+  </dialog>
+
+  <dialog id="broke" class="sheet">
+    <h2 id="broke-title">お金がなくなった</h2>
+    <p id="broke-text"></p>
+    <div class="sheet-actions">
+      <button id="broke-ok" class="primary" type="button">OK</button>
+    </div>
+  </dialog>
+
+</body>
+</html>
