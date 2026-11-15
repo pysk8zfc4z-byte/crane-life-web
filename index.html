@@ -10,8 +10,8 @@
   <link rel="apple-touch-icon" href="./icon-180.png">
   <link rel="manifest" href="./manifest.webmanifest">
   <meta name="apple-mobile-web-app-title" content="クレーン生活">
-  <script type="module" crossorigin src="./assets/index-bCQRSai2.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-DTGdq6F4.css">
+  <script type="module" crossorigin src="./assets/index-Bw4OwoTJ.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BV5yVoLv.css">
 </head>
 <body>
   <div id="app">
@@ -33,6 +33,7 @@
       <button id="allowance-wait" class="allowance-wait" type="button" hidden></button>
       <div id="views" class="views" role="group" aria-label="視点"></div>
       <p class="drag-hint" id="drag-hint">ドラッグで回す・ピンチで拡大・2回タップで戻す</p>
+      <button id="help-open" class="help" type="button" aria-label="遊び方">？</button>
     </main>
 
     <footer class="deck">
@@ -58,6 +59,7 @@
       <p class="reveal-kicker" id="reveal-kicker">ゲット！</p>
       <img id="reveal-art" alt="" width="200" height="280">
       <h2 id="reveal-name"></h2>
+      <p class="reveal-note" id="reveal-note"></p>
       <p class="reveal-price">今日の買取 <strong id="reveal-price"></strong></p>
       <div class="sheet-actions">
         <button id="reveal-keep" class="primary" type="button">棚に飾る</button>
@@ -68,12 +70,15 @@
 
   <dialog id="shelf" class="sheet">
     <div class="shelf-head">
-      <h2>景品の棚</h2>
-      <p id="series-progress"></p>
+      <div class="tabs" role="group" aria-label="表示">
+        <button id="tab-shelf" type="button" aria-pressed="true">棚 <b id="tab-shelf-count">0</b></button>
+        <button id="tab-book" type="button" aria-pressed="false">図鑑 <b id="tab-book-count">0/0</b></button>
+      </div>
       <button id="shelf-close" class="chip" type="button">閉じる</button>
     </div>
     <div id="shelf-items" class="shelf-items"></div>
-    <p class="shelf-note">買取の値段は毎日かわります。</p>
+    <div id="book" class="book" hidden></div>
+    <p class="shelf-note" id="shelf-note">買取の値段は毎日かわります。</p>
   </dialog>
 
   <dialog id="sound" class="sheet">
@@ -88,6 +93,22 @@
     <button id="sound-default" class="chip" type="button">初期値に戻す</button>
   </dialog>
 
+  <dialog id="help" class="sheet">
+    <div class="shelf-head"><h2>遊び方</h2><button id="help-close" class="chip" type="button">閉じる</button></div>
+    <ol class="howto">
+      <li><b>コインを入れる</b><small>¥100で1回・¥500で6回</small></li>
+      <li><b><i class="dot dot-x"></i>緑を押している間、右へ</b><small>離すと止まる。やり直しはできない</small></li>
+      <li><b><i class="dot dot-z"></i>オレンジを押している間、奥へ</b><small>離すとリングが下がる</small></li>
+      <li><b>リングをフックに掛ける</b><small>板が持ち上がって、景品が落ちる</small></li>
+      <li><b>光った取り出し口をタップ</b><small>棚に飾るか、売ってお金にする</small></li>
+    </ol>
+    <ul class="howto-notes">
+      <li>景品が変な所で止まったら「店員さんを呼ぶ」（無料）</li>
+      <li>買取の値段は毎日かわる</li>
+      <li>お金も景品も無くなったら、1日1回お小遣い（端末の時計で 0:00 に日付が変わる）</li>
+    </ul>
+  </dialog>
+
   <dialog id="broke" class="sheet">
     <h2 id="broke-title">お金がなくなった</h2>
     <p id="broke-text"></p>
@@ -95,6 +116,8 @@
       <button id="broke-ok" class="primary" type="button">OK</button>
     </div>
   </dialog>
+
+  <div class="rotate" aria-hidden="true"><p>スマホを縦にしてください</p></div>
 
 </body>
 </html>
