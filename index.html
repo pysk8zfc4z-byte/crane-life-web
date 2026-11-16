@@ -10,8 +10,8 @@
   <link rel="apple-touch-icon" href="./icon-180.png">
   <link rel="manifest" href="./manifest.webmanifest">
   <meta name="apple-mobile-web-app-title" content="クレーン生活">
-  <script type="module" crossorigin src="./assets/index-DLeEEyz6.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-BV5yVoLv.css">
+  <script type="module" crossorigin src="./assets/index-B-_SbsJS.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BdDfKTmI.css">
 </head>
 <body>
   <div id="app">
@@ -34,6 +34,7 @@
       <div id="views" class="views" role="group" aria-label="視点"></div>
       <p class="drag-hint" id="drag-hint">ドラッグで回す・ピンチで拡大・2回タップで戻す</p>
       <button id="help-open" class="help" type="button" aria-label="遊び方">？</button>
+      <button id="practice-open" class="practice" type="button" hidden>練習</button>
     </main>
 
     <footer class="deck">
@@ -108,6 +109,16 @@
       <li>買取の値段は毎日かわる</li>
       <li>お金も景品も無くなったら、1日1回お小遣い（端末の時計で 0:00 に日付が変わる）</li>
     </ul>
+  </dialog>
+
+  <dialog id="practice" class="sheet">
+    <div class="shelf-head"><h2>練習モード</h2><button id="practice-close" class="chip" type="button">閉じる</button></div>
+    <label class="check"><input id="practice-on" type="checkbox"> 練習する<small>お金は減らない・景品はもらえない</small></label>
+    <h3>箱の大きさ</h3>
+    <div id="practice-sizes" class="choices" role="group" aria-label="箱の大きさ"></div>
+    <h3>重心</h3>
+    <div id="practice-coms" class="choices" role="group" aria-label="重心"></div>
+    <p class="shelf-note">橋の幅は箱の厚みに合わせて変わります。重心は箱の赤い丸の所です。</p>
   </dialog>
 
   <dialog id="broke" class="sheet">
