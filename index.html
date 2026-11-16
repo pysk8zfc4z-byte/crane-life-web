@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
-  <meta name="theme-color" content="#0d0a1c">
+  <meta name="theme-color" content="#1b1438">
   <title>クレーン生活</title>
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
   <link rel="icon" href="./icon-192.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="./icon-180.png">
   <link rel="manifest" href="./manifest.webmanifest">
   <meta name="apple-mobile-web-app-title" content="クレーン生活">
-  <script type="module" crossorigin src="./assets/index-D05ICY9L.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-HEsNOY69.css">
+  <script type="module" crossorigin src="./assets/index-CVmjDl74.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-B2FM2Pdj.css">
 </head>
 <body>
   <div id="app">
     <header class="hud">
-      <div class="wallet" aria-label="所持金">
+      <div class="wallet" role="group" aria-label="所持金">
         <span class="yen">¥</span><strong id="money">3,000</strong>
       </div>
-      <div class="credits" aria-label="残りプレイ回数"><span>残</span><strong id="credits">0</strong><span>回</span></div>
+      <div class="credits" role="group" aria-label="残りプレイ回数"><span>残</span><strong id="credits">0</strong><span>回</span></div>
       <nav>
         <button id="shelf-open" class="chip" type="button">棚 <b id="shelf-count">0</b></button>
         <button id="sound-open" class="chip" type="button">音</button>
@@ -28,11 +28,11 @@
 
     <div id="machines" class="machines" role="group" aria-label="台を選ぶ"></div>
     <main id="stage" class="stage">
-      <div id="loading" class="loading">台を準備中…</div>
+      <div id="loading" class="loading" role="status"><span class="spinner" aria-hidden="true"></span><span id="loading-text">台を準備中…</span></div>
       <div id="toast" class="toast" role="status" aria-live="polite"></div>
       <button id="allowance-wait" class="allowance-wait" type="button" hidden></button>
       <div id="views" class="views" role="group" aria-label="視点"></div>
-      <p class="drag-hint" id="drag-hint">ドラッグで回す・ピンチで拡大・2回タップで戻す</p>
+      <p class="drag-hint" id="drag-hint">ドラッグで回す・ピンチで拡大・2回タップで視点を戻す</p>
       <button id="help-open" class="help" type="button" aria-label="遊び方">？</button>
       <button id="practice-open" class="practice" type="button" hidden>練習</button>
     </main>
@@ -51,11 +51,10 @@
           <span class="cap" aria-hidden="true"><svg class="arrow arrow-up" viewBox="0 0 100 100"><path d="M16 39 H54 V20 L86 50 L54 80 V61 H16 Z"/></svg></span>
         </button>
       </div>
-      <button id="take" class="take" type="button" hidden>取り出し口を開ける</button>
     </footer>
   </div>
 
-  <dialog id="reveal" class="sheet">
+  <dialog id="reveal" class="sheet" aria-labelledby="reveal-name">
     <div class="reveal-card">
       <p class="reveal-kicker" id="reveal-kicker">ゲット！</p>
       <img id="reveal-art" alt="" width="200" height="280">
@@ -69,7 +68,7 @@
     </div>
   </dialog>
 
-  <dialog id="shelf" class="sheet">
+  <dialog id="shelf" class="sheet" aria-label="棚と図鑑">
     <div class="shelf-head">
       <div class="tabs" role="group" aria-label="表示">
         <button id="tab-shelf" type="button" aria-pressed="true">棚 <b id="tab-shelf-count">0</b></button>
@@ -79,11 +78,11 @@
     </div>
     <div id="shelf-items" class="shelf-items"></div>
     <div id="book" class="book" hidden></div>
-    <p class="shelf-note" id="shelf-note">買取の値段は毎日かわります。</p>
+    <p class="shelf-note" id="shelf-note">買取の値段は毎日かわる</p>
   </dialog>
 
-  <dialog id="sound" class="sheet">
-    <div class="shelf-head"><h2>音の設定</h2><button id="sound-close" class="chip" type="button">閉じる</button></div>
+  <dialog id="sound" class="sheet" aria-labelledby="sound-title">
+    <div class="shelf-head"><h2 id="sound-title">音の設定</h2><button id="sound-close" class="chip" type="button">閉じる</button></div>
     <label class="check"><input id="sound-on" type="checkbox" checked> 音を出す</label>
     <div class="levels">
       <label for="lv-mech">機械音<small>モーター・鎖</small></label><input id="lv-mech" data-bus="mech" type="range" min="0" max="100">
@@ -94,35 +93,36 @@
     <button id="sound-default" class="chip" type="button">初期値に戻す</button>
   </dialog>
 
-  <dialog id="help" class="sheet">
-    <div class="shelf-head"><h2>遊び方</h2><button id="help-close" class="chip" type="button">閉じる</button></div>
+  <dialog id="help" class="sheet" aria-labelledby="help-title">
+    <div class="shelf-head"><h2 id="help-title">遊び方</h2><button id="help-close" class="chip" type="button">閉じる</button></div>
     <ol class="howto">
       <li><b>コインを入れる</b><small>¥100で1回・¥500で6回</small></li>
-      <li><b><i class="dot dot-x"></i>緑を押している間、右へ</b><small>離すと止まる。やり直しはできない</small></li>
-      <li><b><i class="dot dot-z"></i>オレンジを押している間、奥へ</b><small>離すとリングが下がる</small></li>
+      <li><b><i class="dot dot-x"></i>緑（→）を押している間、右へ</b><small>離すと止まる。やり直しはできない</small></li>
+      <li><b><i class="dot dot-z"></i>オレンジ（↑）を押している間、奥へ</b><small>離すとクレーンが下がる</small></li>
       <li><b>フック台：リングをフックに掛ける</b><small>板が持ち上がって、景品が落ちる</small></li>
-      <li><b>橋渡し：アームで箱をずらす</b><small>箱がバーのあいだから落ちる。箱の位置は次の回に残る</small></li>
+      <li><b>橋渡し台：アームで箱をずらす</b><small>箱がバーのあいだから落ちる。箱の位置は次の回に残る</small></li>
       <li><b>光った取り出し口をタップ</b><small>棚に飾るか、売ってお金にする</small></li>
     </ol>
     <ul class="howto-notes">
       <li>景品が変な所で止まったら「店員さんを呼ぶ」（無料）</li>
       <li>買取の値段は毎日かわる</li>
-      <li>お金も景品も無くなったら、1日1回お小遣い（端末の時計で 0:00 に日付が変わる）</li>
+      <li>お金も景品もなくなったら、1日1回お小遣い（0:00 に次の分）</li>
     </ul>
+    <p class="version" id="version"></p>
   </dialog>
 
-  <dialog id="practice" class="sheet">
-    <div class="shelf-head"><h2>練習モード</h2><button id="practice-close" class="chip" type="button">閉じる</button></div>
+  <dialog id="practice" class="sheet" aria-labelledby="practice-title">
+    <div class="shelf-head"><h2 id="practice-title">練習モード</h2><button id="practice-close" class="chip" type="button">閉じる</button></div>
     <label class="check"><input id="practice-on" type="checkbox"> 練習する<small>お金は減らない・景品はもらえない</small></label>
     <h3>箱の大きさ</h3>
     <div id="practice-sizes" class="choices" role="group" aria-label="箱の大きさ"></div>
     <h3>重心</h3>
     <div id="practice-coms" class="choices" role="group" aria-label="重心"></div>
-    <p class="shelf-note">橋の幅は箱の厚みに合わせて変わります。重心は箱の赤い丸の所です。</p>
+    <p class="shelf-note">バーの間隔は箱の厚みで変わる。赤い丸が重心</p>
   </dialog>
 
-  <dialog id="broke" class="sheet">
-    <h2 id="broke-title">お金がなくなった</h2>
+  <dialog id="broke" class="sheet" aria-labelledby="broke-title">
+    <h2 id="broke-title">お金が足りない</h2>
     <p id="broke-text"></p>
     <div class="sheet-actions">
       <button id="broke-ok" class="primary" type="button">OK</button>
@@ -131,5 +131,19 @@
 
   <div class="rotate" aria-hidden="true"><p>スマホを縦にしてください</p></div>
 
+  <script>
+    // 本体が読めない時（圏外・公開し直した直後の古いページ・古いブラウザ）に、「準備中」のまま固まらないようにする
+    (function () {
+      var curtain = document.getElementById('loading'), text = document.getElementById('loading-text');
+      function waiting() { return curtain && !curtain.classList.contains('done') && !curtain.classList.contains('failed'); }
+      window.addEventListener('error', function (e) {
+        var t = e.target;
+        if (!t || (t.tagName !== 'SCRIPT' && t.tagName !== 'LINK') || !waiting()) return;
+        curtain.classList.add('failed');
+        text.textContent = '読み込めませんでした。電波を確かめて、ページを開き直してください。';
+      }, true);
+      setTimeout(function () { if (waiting()) text.textContent = '読み込みに時間がかかっています…'; }, 20000);
+    })();
+  </script>
 </body>
 </html>
