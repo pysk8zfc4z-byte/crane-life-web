@@ -10,8 +10,8 @@
   <link rel="apple-touch-icon" href="./icon-180.png">
   <link rel="manifest" href="./manifest.webmanifest">
   <meta name="apple-mobile-web-app-title" content="クレーン生活">
-  <script type="module" crossorigin src="./assets/index-BO7qZWlc.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-CjIkkHM9.css">
+  <script type="module" crossorigin src="./assets/index-CSxWni7x.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-C2Yyr03-.css">
 </head>
 <body>
   <div id="app">
@@ -26,9 +26,13 @@
       </nav>
     </header>
 
-    <div id="machines" class="machines" role="group" aria-label="台を選ぶ"></div>
     <main id="stage" class="stage">
       <div id="loading" class="loading" role="status"><span class="spinner" aria-hidden="true"></span><span id="loading-text">台を準備中…</span></div>
+      <div class="machine-bar">
+        <button id="machine-open" class="machine-pick" type="button" aria-haspopup="dialog">
+          <span class="pick-label">台</span><b class="pick-name"></b><small class="pick-prize"></small><span class="pick-more" aria-hidden="true">▾</span>
+        </button>
+      </div>
       <div id="toast" class="toast" role="status" aria-live="polite"></div>
       <button id="allowance-wait" class="allowance-wait" type="button" hidden></button>
       <div id="views" class="views" role="group" aria-label="視点"></div>
@@ -80,6 +84,11 @@
     <div id="shelf-items" class="shelf-items"></div>
     <div id="book" class="book" hidden></div>
     <p class="shelf-note" id="shelf-note">買取の値段は毎日かわる</p>
+  </dialog>
+
+  <dialog id="machine-sheet" class="sheet" aria-labelledby="machine-title">
+    <div class="shelf-head"><h2 id="machine-title">台を選ぶ</h2><button class="chip pick-close" type="button">閉じる</button></div>
+    <div class="pick-list"></div>
   </dialog>
 
   <dialog id="sound" class="sheet" aria-labelledby="sound-title">
