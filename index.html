@@ -10,8 +10,8 @@
   <link rel="apple-touch-icon" href="./icon-180.png">
   <link rel="manifest" href="./manifest.webmanifest">
   <meta name="apple-mobile-web-app-title" content="クレーン生活">
-  <script type="module" crossorigin src="./assets/index-CU9QLLw8.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-BDuEC08N.css">
+  <script type="module" crossorigin src="./assets/index-CA-GvLMr.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-B9qwuKlD.css">
 </head>
 <body>
   <div id="app">
@@ -40,6 +40,7 @@
       <button id="help-open" class="help" type="button" aria-label="遊び方">？</button>
       <button id="practice-open" class="practice" type="button" hidden>練習</button>
       <button id="demo" class="practice demo" type="button" hidden>お手本</button>
+      <button id="timer-open" class="practice" type="button" hidden>目標 10.00秒</button>
     </main>
 
     <footer class="deck">
@@ -50,7 +51,7 @@
       </div>
       <div class="buttons">
         <button id="btn-x" class="arcade arcade-x" type="button" aria-label="右へ（押している間だけ動く）" disabled>
-          <span class="cap" aria-hidden="true"><svg class="arrow" viewBox="0 0 100 100"><path d="M16 39 H54 V20 L86 50 L54 80 V61 H16 Z"/></svg></span>
+          <span class="cap" aria-hidden="true"><svg class="arrow" viewBox="0 0 100 100"><path d="M16 39 H54 V20 L86 50 L54 80 V61 H16 Z"/></svg><b id="btn-x-word" class="word">スタート</b></span>
         </button>
         <button id="btn-z" class="arcade arcade-z" type="button" aria-label="奥へ（離すと下がる）" disabled>
           <span class="cap" aria-hidden="true"><svg class="arrow arrow-up" viewBox="0 0 100 100"><path d="M16 39 H54 V20 L86 50 L54 80 V61 H16 Z"/></svg></span>
@@ -134,6 +135,19 @@
     <div id="practice-coms" class="choices" role="group" aria-label="重心"></div>
     <p class="shelf-note">箱の絵は、いま台にのっている景品。「実物」はその箱の大きさ・重心。バーの間隔は箱の厚みで変わる。赤い丸が重心</p>
     <p class="shelf-note">練習中は「お手本」で、クレーンが自動で1手打って見せる（何通りか試して、一番進む手）</p>
+  </dialog>
+
+  <dialog id="timer" class="sheet" aria-labelledby="timer-title">
+    <div class="shelf-head"><h2 id="timer-title">目標の秒数</h2><button id="timer-close" class="chip" type="button">閉じる</button></div>
+    <p class="timer-show"><output id="timer-value" class="timer-value">10.00</output><span class="timer-unit">秒</span></p>
+    <div class="timer-set">
+      <button id="timer-down" class="chip" type="button" aria-label="1秒へらす">−1</button>
+      <button id="timer-down-fine" class="chip" type="button" aria-label="0.1秒へらす">−0.1</button>
+      <button id="timer-up-fine" class="chip" type="button" aria-label="0.1秒ふやす">＋0.1</button>
+      <button id="timer-up" class="chip" type="button" aria-label="1秒ふやす">＋1</button>
+    </div>
+    <div id="timer-quick" class="choices" role="group" aria-label="よく使う秒数"></div>
+    <p class="shelf-note">この秒数ぴったり（0.01秒まで）で止めたら景品。1〜60秒</p>
   </dialog>
 
   <dialog id="broke" class="sheet" aria-labelledby="broke-title">
