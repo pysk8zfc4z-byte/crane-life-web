@@ -21,8 +21,8 @@
   <link rel="apple-touch-icon" href="./icon-180.png">
   <link rel="manifest" href="./manifest.webmanifest">
   <meta name="apple-mobile-web-app-title" content="クレーン生活">
-  <script type="module" crossorigin src="./assets/index-BF0YU56f.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-C_-qJcRA.css">
+  <script type="module" crossorigin src="./assets/index-kH0251gs.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-D-XJC12Y.css">
 </head>
 <body>
   <div id="app">
@@ -142,15 +142,39 @@
     <p class="version" id="version"></p>
   </dialog>
 
-  <dialog id="practice" class="sheet" aria-labelledby="practice-title">
-    <div class="shelf-head"><h2 id="practice-title">練習モード</h2><button id="practice-close" class="chip" type="button">閉じる</button></div>
-    <label class="check"><input id="practice-on" type="checkbox"> 練習する<small>お金は減らない・景品はもらえない</small></label>
-    <h3>箱の大きさ</h3>
-    <div id="practice-sizes" class="choices" role="group" aria-label="箱の大きさ"></div>
-    <h3>重心</h3>
-    <div id="practice-coms" class="choices" role="group" aria-label="重心"></div>
-    <p class="shelf-note">箱の絵は、いま台にのっている景品。「実物」はその箱の大きさ・重心。バーの間隔は箱の厚みで変わる。赤い丸が重心</p>
-    <p class="shelf-note">練習中は「お手本」で、クレーンが自動で1手打って見せる（何通りか試して、一番進む手）</p>
+  <dialog id="practice" class="sheet custom-sheet" aria-labelledby="practice-title">
+    <div class="shelf-head"><h2 id="practice-title">カスタム（橋渡し）</h2><button id="practice-close" class="chip" type="button">閉じる</button></div>
+    <label class="check"><input id="practice-on" type="checkbox"> カスタムで遊ぶ<small>お金は減らない・景品はもらえない</small></label>
+    <div id="custom-slots" class="tabs custom-slots" role="group" aria-label="カスタムの枠"></div>
+    <details class="custom-group" open>
+      <summary>箱</summary>
+      <h3>大きさ</h3>
+      <div id="practice-sizes" class="choices" role="group" aria-label="箱の大きさ"></div>
+      <h3>重心</h3>
+      <div id="practice-coms" class="choices" role="group" aria-label="重心"></div>
+      <div id="custom-box" class="knobs"></div>
+    </details>
+    <details class="custom-group">
+      <summary>アーム</summary>
+      <div id="custom-arm" class="knobs"></div>
+    </details>
+    <details class="custom-group">
+      <summary>バー</summary>
+      <p id="custom-box-note" class="shelf-note"></p>
+      <div id="custom-bar" class="knobs"></div>
+      <h3>滑り止め</h3>
+      <div id="custom-grips" class="grips"></div>
+    </details>
+    <details class="custom-group">
+      <summary>クレーン</summary>
+      <div id="custom-crane" class="knobs"></div>
+    </details>
+    <div class="sheet-actions">
+      <button id="custom-reset" class="secondary" type="button">初期に戻す</button>
+      <button id="custom-apply" class="primary" type="button">台に反映</button>
+    </div>
+    <p class="shelf-note">初期値はお店の設定と同じ。閉じると台に反映して、箱は初めの位置に戻る。箱の絵は、いま台にのっている景品。赤い丸が重心</p>
+    <p class="shelf-note">カスタム中は「お手本」で、クレーンが自動で1手打って見せる（何通りか試して、一番進む手）</p>
   </dialog>
 
   <dialog id="timer" class="sheet" aria-labelledby="timer-title">
