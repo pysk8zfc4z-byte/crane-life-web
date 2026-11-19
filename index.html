@@ -21,8 +21,8 @@
   <link rel="apple-touch-icon" href="./icon-180.png">
   <link rel="manifest" href="./manifest.webmanifest">
   <meta name="apple-mobile-web-app-title" content="クレーン生活">
-  <script type="module" crossorigin src="./assets/index-C_qD4mCK.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-DGxn6NeY.css">
+  <script type="module" crossorigin src="./assets/index-CIyFFlDc.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-C0C2NR-8.css">
 </head>
 <body>
   <div id="app">
@@ -55,6 +55,7 @@
       <button id="timer-open" class="practice" type="button" hidden>目標 10.00秒</button>
       <output id="medal-count" class="practice medal-count" hidden>メダル 0枚</output>
       <output id="prize-count" class="practice medal-count prize-count" hidden aria-live="polite">景品 0個</output>
+      <button id="bet-open" class="practice bet" type="button" hidden aria-label="1発に賭けるメダルの数を替える">BET 1枚</button>
     </main>
 
     <footer class="deck">
@@ -133,6 +134,7 @@
       <li><b>棒通し：吊るした棒を穴に通す</b><small>オレンジを離すと棒が落ちる。真ん中の穴に通れば景品</small></li>
       <li><b>ぴったりストップ：目標の秒数で止める</b><small>緑で計り始め、もう一度押して止める。目標の秒数ぴったりで当たり（目標は札から変えられる）</small></li>
       <li><b>3段クルーン：緑で玉を1個入れる</b><small>100円で玉1個。光るゲートの所から皿に入り、赤い穴に落ちると下の皿へ。3段続けて抜ければ景品（どの穴も同じ確率で、1段 1/3・3段で約 1/27）</small></li>
+      <li><b>お宝タワー：玉を段ごとに上げる</b><small>緑で玉を1発（メダルを 1・3・5・10 枚賭ける。札で替える）。玉は手前の溝を左右に行き来して、正面に来ているポケットに落ちる。ポケットの列は回っていて、溝の縁が緑に光る段はゆっくり回る狙い目（打つ時を選ぶと UP に入りやすい）。×数字・×? は賭けた数×数字のメダル。3段目の HOLD に入った玉は残ってポケットをふさぎ、チャンスに入りやすくなる。チャンスで天井の段へ、大当たりは 賭けた数×100枚＋ためたメダル＋景品（棚へ）。動かせる玉は2個まで</small></li>
       <li><b>メダル落とし：緑でメダルを1枚落とす</b><small>100円でメダル10枚。投入口は左右に動く。メダルの山の上の色玉が手前の穴に落ちるとリールが回り、3つ揃えば景品。揃いやすさは 青＜緑＜赤＜金（金はめったに出ないが、揃うと価値の高いお菓子）。3・5・7 で揃うと 50% で連チャン。景品は取り出し口を通らず、そのまま棚に入る（右下に取った数）</small></li>
       <li><b>光った取り出し口をタップ</b><small>棚に飾るか、売ってお金にする</small></li>
     </ol>
