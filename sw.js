@@ -3,8 +3,8 @@
 // ・はじめて開いた時に、ゲームの全部（約 7.5MB）をこの端末に保存する。そのあとは電波が無くても、保存した物から開く
 // ・公開し直したら：ネットにつないで開いた時に新しい版を裏で保存し、アプリを開き直した時から新しい版になる（遊んでいる途中で中身が入れ替わらないように）
 // ・保存データ（お金・景品など）は localStorage にあり、ここでは触らない
-const VERSION = '2f8ece619b41';
-const FILES = ["assets/appliances-DUDPU7Yb.webp","assets/clocks-CrmW0kmJ.webp","assets/gen-jean-CdbShlT-.webp","assets/gen-leo-Csl5nv0b.webp","assets/gen-luca-S2EjbQ3V.webp","assets/index-B1c-foEO.css","assets/index-De0IqN-Y.js","assets/kou-gen-CfffIAgs.webp","assets/kou-kin-Dkyv75VX.webp","assets/kou-taiga-CzaOHZuj.webp","assets/kou-tetsu-zQCTqeML.webp","assets/luxury-DXtvWj0b.webp","assets/mascots-jK7mVfpP.webp","assets/sen-gou-CRJwmLrm.webp","assets/sen-jin-Cr2nAO0H.webp","assets/sen-kai-BwZGKskd.webp","assets/snack-photos-D3zRmfYX.webp","assets/worker-CJJ_LEn4.js","icon-180.png","icon-192.png","icon-512.png","icon-maskable-512.png","icon.svg","index.html","manifest.webmanifest","og.jpg","sfx/sfx.wav"];
+const VERSION = 'e5ea43cbcede';
+const FILES = ["assets/appliances-DUDPU7Yb.webp","assets/clocks-CrmW0kmJ.webp","assets/gen-jean-CdbShlT-.webp","assets/gen-leo-Csl5nv0b.webp","assets/gen-luca-S2EjbQ3V.webp","assets/index-B1c-foEO.css","assets/index-BNdtVNaw.js","assets/kou-gen-CfffIAgs.webp","assets/kou-kin-Dkyv75VX.webp","assets/kou-taiga-CzaOHZuj.webp","assets/kou-tetsu-zQCTqeML.webp","assets/luxury-DXtvWj0b.webp","assets/mascots-jK7mVfpP.webp","assets/sen-gou-CRJwmLrm.webp","assets/sen-jin-Cr2nAO0H.webp","assets/sen-kai-BwZGKskd.webp","assets/snack-photos-D3zRmfYX.webp","assets/worker-Bahp3VIK.js","icon-180.png","icon-192.png","icon-512.png","icon-maskable-512.png","icon.svg","index.html","manifest.webmanifest","og.jpg","sfx/sfx.wav"];
 const CACHE = `crane-life-${VERSION}`;
 
 self.addEventListener('install', event => {
