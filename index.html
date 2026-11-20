@@ -21,8 +21,8 @@
   <link rel="apple-touch-icon" href="./icon-180.png">
   <link rel="manifest" href="./manifest.webmanifest">
   <meta name="apple-mobile-web-app-title" content="クレーン生活">
-  <script type="module" crossorigin src="./assets/index-DQPJ1mi3.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-B2rfajoh.css">
+  <script type="module" crossorigin src="./assets/index-BSZCNA9h.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BsVTnpOJ.css">
 </head>
 <body>
   <div id="app">
@@ -54,6 +54,8 @@
       <button id="demo" class="practice demo" type="button" hidden>お手本</button>
       <button id="timer-open" class="practice" type="button" hidden>目標 10.00秒</button>
       <output id="medal-count" class="practice medal-count" hidden>メダル 0枚</output>
+      <output id="medal-gain" class="medal-gain" aria-hidden="true"></output>
+      <output id="medal-rain" class="medal-rain" aria-live="polite"></output>
       <output id="prize-count" class="practice medal-count prize-count" hidden aria-live="polite">景品 0個</output>
       <button id="bet-open" class="practice bet" type="button" hidden aria-label="1発に賭けるメダルの数を替える">BET 1枚</button>
     </main>
@@ -139,7 +141,7 @@
       <li data-kinds="tower"><b>玉は溝を行き来して、正面のポケットへ</b><small>ポケットの列は回っている。溝の縁が緑の段はゆっくり回る狙い目。窓が光って「カッ、カッ」と鳴ったら入るかどうかの瀬戸際</small></li>
       <li data-kinds="tower"><b>UP で上の段へ、×数字はメダル</b><small>×数字・×? は 賭けた数×数字。3段目の HOLD は玉が残って口が閉じ、チャンスに入りやすくなる</small></li>
       <li data-kinds="tower"><b>チャンスで天井の段、大当たりでお宝</b><small>賭けた数×100枚＋ためたメダル（右の札）＋景品（棚へ）</small></li>
-      <li data-kinds="pusher"><b>メダル落とし：緑でメダルを1枚落とす</b><small>100円でメダル10枚。投入口は左右に動く。メダルの山の上の色玉が手前の穴に落ちるとリールが回り、3つ揃えば景品。揃いやすさは 青＜緑＜赤＜金（金はめったに出ないが、揃うと価値の高いお菓子）。3・5・7 で揃うと 50% で連チャン。景品は取り出し口を通らず、そのまま棚に入る（右下に取った数）</small></li>
+      <li data-kinds="pusher"><b>メダル落とし：緑でメダルを1枚落とす</b><small>100円でメダル10枚。投入口は左右に動く。メダルの山の上の色玉が手前の穴に落ちるとリールが回り、3つ揃えば景品。揃いやすさは 青＜緑＜赤＜金（金はめったに出ないが、揃うと価値の高いお菓子）。3・5・7 で揃うと 50% で連チャン。揃うと押し台の上にメダルが降る（10枚・連チャン25枚・金50枚）。手前の真ん中（もどる）から落ちたメダルは手元に戻り、横（OUT）は戻らない。景品は取り出し口を通らず、そのまま棚に入る（右下に取った数）</small></li>
       <li data-kinds="hook bridge tako plush rod timer croon"><b>光った取り出し口をタップ</b><small>棚に飾るか、売ってお金にする</small></li>
     </ol>
     <ul class="howto-notes">
