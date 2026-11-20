@@ -21,8 +21,8 @@
   <link rel="apple-touch-icon" href="./icon-180.png">
   <link rel="manifest" href="./manifest.webmanifest">
   <meta name="apple-mobile-web-app-title" content="クレーン生活">
-  <script type="module" crossorigin src="./assets/index-CIgmEV68.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-IkS99qhO.css">
+  <script type="module" crossorigin src="./assets/index-BPTIqA-S.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DuBOT_G4.css">
 </head>
 <body>
   <div id="app">
@@ -35,7 +35,7 @@
       <nav>
         <button id="exchange-open" class="chip" type="button" aria-haspopup="dialog">交換所</button>
         <button id="shelf-open" class="chip" type="button">棚 <b id="shelf-count">0</b></button>
-        <button id="sound-open" class="chip" type="button">音</button>
+        <button id="sound-open" class="chip" type="button" aria-haspopup="dialog">設定</button>
       </nav>
     </header>
 
@@ -123,7 +123,8 @@
   </dialog>
 
   <dialog id="sound" class="sheet" aria-labelledby="sound-title">
-    <div class="shelf-head"><h2 id="sound-title">音の設定</h2><button id="sound-close" class="chip" type="button">閉じる</button></div>
+    <div class="shelf-head"><h2 id="sound-title">設定</h2><button id="sound-close" class="chip" type="button">閉じる</button></div>
+    <h3 class="set-head">音</h3>
     <label class="check"><input id="sound-on" type="checkbox" checked> 音を出す</label>
     <div class="levels">
       <label for="lv-mech">機械音<small>モーター・鎖</small></label><input id="lv-mech" data-bus="mech" type="range" min="0" max="100">
@@ -132,6 +133,49 @@
       <label for="lv-amb">店内<small>ざわめき</small></label><input id="lv-amb" data-bus="amb" type="range" min="0" max="100">
     </div>
     <button id="sound-default" class="chip" type="button">初期値に戻す</button>
+    <section class="parental" aria-labelledby="pm-title">
+      <h3 id="pm-title" class="set-head">保護者モード</h3>
+      <p id="pm-status" class="pm-status"></p>
+      <p id="pm-note" class="pm-note">1日に遊べる回数と時間を決められます。決めたパスワードで、変更・やめる・今日だけの延長ができます。</p>
+      <button id="pm-start" class="chip" type="button">パスワードを決めて始める</button>
+      <button id="pm-open" class="chip" type="button" hidden>変更する（パスワード）</button>
+      <form id="pm-pin" class="pm-form" hidden>
+        <label for="pm-pin-input" id="pm-pin-label">パスワード（数字4〜8桁）</label>
+        <input id="pm-pin-input" type="password" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="8">
+        <label for="pm-pin-confirm" id="pm-confirm-label" hidden>もう一度</label>
+        <input id="pm-pin-confirm" type="password" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="8" hidden>
+        <p id="pm-pin-error" class="pm-error" role="alert"></p>
+        <div class="pm-actions"><button type="submit" class="primary">OK</button><button id="pm-pin-cancel" class="chip" type="button">やめる</button></div>
+      </form>
+      <div id="pm-edit" class="pm-form" hidden>
+        <label for="pm-plays">1日の回数<small>100円で1回分。メダルは10枚で1回、練習の1手も1回</small></label>
+        <select id="pm-plays"></select>
+        <label for="pm-minutes">1日の時間<small>画面を開いている時間</small></label>
+        <select id="pm-minutes"></select>
+        <div class="pm-actions"><button id="pm-change-pin" class="chip" type="button">パスワードを変える</button><button id="pm-turn-off" class="chip" type="button">保護者モードをやめる</button><button id="pm-done" class="chip" type="button">決定</button></div>
+      </div>
+      <p class="pm-note">パスワードを忘れた時は、このブラウザのサイトのデータを消すと戻ります（お金・景品も消えます）。</p>
+    </section>
+  </dialog>
+
+  <dialog id="limit" class="sheet limit-sheet" aria-labelledby="limit-title">
+    <h2 id="limit-title">今日はここまで</h2>
+    <p id="limit-reason" class="limit-reason"></p>
+    <p class="limit-kid">また明日あそぼう！</p>
+    <details id="limit-parent" class="limit-parent">
+      <summary>保護者の方へ</summary>
+      <form id="limit-form" class="pm-form">
+        <label for="limit-pin">パスワードで今日だけ延長</label>
+        <input id="limit-pin" type="password" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="8">
+        <p id="limit-error" class="pm-error" role="alert"></p>
+        <div class="pm-actions" id="limit-unlock-row"><button type="submit" class="primary">確かめる</button></div>
+        <div class="pm-actions" id="limit-grants" hidden>
+          <button type="button" class="chip" data-grant="plays">あと5回</button>
+          <button type="button" class="chip" data-grant="time">あと15分</button>
+          <button type="button" class="chip" data-grant="unlimited">今日は制限なし</button>
+        </div>
+      </form>
+    </details>
   </dialog>
 
   <dialog id="help" class="sheet" aria-labelledby="help-title">
