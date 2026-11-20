@@ -21,8 +21,8 @@
   <link rel="apple-touch-icon" href="./icon-180.png">
   <link rel="manifest" href="./manifest.webmanifest">
   <meta name="apple-mobile-web-app-title" content="クレーン生活">
-  <script type="module" crossorigin src="./assets/index-BDcrXaZk.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-BWnP3ZM0.css">
+  <script type="module" crossorigin src="./assets/index-CHu08oH-.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DXhHZP_n.css">
 </head>
 <body>
   <div id="app">
@@ -163,6 +163,25 @@
       </div>
       <p class="pm-note">パスワードを忘れた時は、このブラウザのサイトのデータを消すと戻ります（お金・景品も消えます）。</p>
     </section>
+  </dialog>
+
+  <dialog id="medal-debug" class="sheet medal-debug" aria-labelledby="md-title">
+    <div class="shelf-head"><h2 id="md-title">演出の確認（開発用）</h2><button id="md-close" class="chip" type="button">閉じる</button></div>
+    <p class="pm-note">押すと、抽選を通さずにその演出が保留に入る（メダルは減らない。払い出しはいつもどおり入る）</p>
+    <h3 class="set-head">すぐ出す</h3>
+    <div id="md-presets" class="md-grid"></div>
+    <h3 class="set-head">組み合わせ</h3>
+    <div class="md-form">
+      <label>結果<select id="md-digit"><option value="0">外れ</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option selected>7</option><option>8</option><option>9</option></select></label>
+      <label>リーチ<select id="md-reach"><option value="0">なし</option><option value="1">ノーマル</option><option value="2">スーパー</option><option value="3" selected>全回転</option><option value="4">フリーズ</option></select></label>
+      <label>保留の色<select id="md-hold"><option value="0">白</option><option value="1">青</option><option value="2">緑</option><option value="3">赤</option><option value="4">虹</option></select></label>
+      <label>もちねこ<select id="md-notice"><option value="0">動かない</option><option value="1">ゆれる</option><option value="2">はねる</option><option value="3">光って回る</option><option value="4">虹色</option></select></label>
+      <label>色玉<select id="md-color"><option value="0">青</option><option value="1">緑</option><option value="2">赤</option><option value="3" selected>金</option><option value="4">虹</option></select></label>
+      <label>連チャン<select id="md-chain"><option>1</option><option selected>2</option><option>3</option><option>5</option><option>8</option></select></label>
+      <label>JP<select id="md-jp"><option value="0">なし</option><option value="1">当たり</option><option value="2">外れ</option></select></label>
+      <label class="check"><input id="md-saki" type="checkbox"> 先バレ</label>
+    </div>
+    <div class="pm-actions"><button id="md-run" class="primary" type="button">この演出を出す</button></div>
   </dialog>
 
   <dialog id="limit" class="sheet limit-sheet" aria-labelledby="limit-title">
