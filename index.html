@@ -21,8 +21,8 @@
   <link rel="apple-touch-icon" href="./icon-180.png">
   <link rel="manifest" href="./manifest.webmanifest">
   <meta name="apple-mobile-web-app-title" content="クレーン生活">
-  <script type="module" crossorigin src="./assets/index-clrxWoxg.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-C1t2nwE7.css">
+  <script type="module" crossorigin src="./assets/index-DIlx1CSC.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BSGLD8hA.css">
 </head>
 <body>
   <!-- ホーム（初期画面。src/ui/home.ts）：入口は クレーンゲーム・メダルゲーム・ビデオゲーム -->
@@ -189,6 +189,8 @@
     <h3 class="set-head">手ざわり</h3>
     <label class="check"><input id="feel-shake" type="checkbox" checked> 画面をゆらす<small>景品が落ちた時・大当たりの時</small></label>
     <label id="feel-buzz-row" class="check"><input id="feel-buzz" type="checkbox" checked> 振動<small>ボタン・当たり（Android）</small></label>
+    <h3 class="set-head">見た目</h3>
+    <label class="check"><input id="arm-cover" type="checkbox" checked> アームのカバーを透明にする<small>2本アームの頭。中の歯車が見える</small></label>
     <section class="install-sec" aria-labelledby="install-title">
       <h3 id="install-title" class="set-head">アプリにする</h3>
       <p id="install-note" class="pm-note"></p>
@@ -292,38 +294,51 @@
   </dialog>
 
   <dialog id="practice" class="sheet custom-sheet" aria-labelledby="practice-title">
-    <div class="shelf-head"><h2 id="practice-title">カスタム（橋渡し）</h2><button id="practice-close" class="chip" type="button">閉じる</button></div>
-    <label class="check"><input id="practice-on" type="checkbox"> カスタムで遊ぶ<small>お金は減らない・景品はもらえない</small></label>
-    <div id="custom-slots" class="tabs custom-slots" role="group" aria-label="カスタムの枠"></div>
-    <details class="custom-group" open>
-      <summary>箱</summary>
-      <h3>大きさ</h3>
-      <div id="practice-sizes" class="choices" role="group" aria-label="箱の大きさ"></div>
-      <h3>重心</h3>
-      <div id="practice-coms" class="choices" role="group" aria-label="重心"></div>
-      <div id="custom-box" class="knobs"></div>
-    </details>
-    <details class="custom-group">
-      <summary>アーム</summary>
-      <div id="custom-arm" class="knobs"></div>
-    </details>
-    <details class="custom-group">
-      <summary>バー</summary>
-      <p id="custom-box-note" class="shelf-note"></p>
-      <div id="custom-bar" class="knobs"></div>
-      <h3>滑り止め</h3>
-      <div id="custom-grips" class="grips"></div>
-    </details>
-    <details class="custom-group">
-      <summary>クレーン</summary>
-      <div id="custom-crane" class="knobs"></div>
-    </details>
-    <div class="sheet-actions">
-      <button id="custom-reset" class="secondary" type="button">初期に戻す</button>
-      <button id="custom-apply" class="primary" type="button">台に反映</button>
+    <!-- カスタム（2026-11-23 本人「カスタム画面は用途に合うようにUIやレイアウトを最適化してください」）：見本はいつも見える（スマホは上・PC は左）、組はタブで1つずつ、
+         目盛りは − ＋ で細かく・変えた目盛りは色が変わり1つずつ初期に戻せる、反映は下にいつも出す -->
+    <div id="arm-preview" class="arm-preview" aria-hidden="true"></div>
+    <div class="cs-panel">
+      <header class="cs-head">
+        <h2 id="practice-title">カスタム</h2>
+        <div id="custom-slots" class="cs-slots" role="group" aria-label="カスタムの枠"></div>
+        <button id="practice-close" class="chip" type="button">閉じる</button>
+      </header>
+      <label class="cs-play"><input id="practice-on" type="checkbox"><span class="cs-switch" aria-hidden="true"></span><b>カスタムで遊ぶ</b><small id="cs-play-note">お金は減らない・景品はもらえない</small></label>
+      <nav class="cs-tabs" role="tablist" aria-label="設定の組">
+        <button type="button" role="tab" data-group="box">箱<i></i></button>
+        <button type="button" role="tab" data-group="arm">アーム<i></i></button>
+        <button type="button" role="tab" data-group="bar">バー<i></i></button>
+        <button type="button" role="tab" data-group="crane">クレーン<i></i></button>
+      </nav>
+      <div class="cs-body">
+        <section class="cs-group" data-group="box" role="tabpanel">
+          <h3>大きさ</h3>
+          <div id="practice-sizes" class="choices" role="group" aria-label="箱の大きさ"></div>
+          <h3>重心<small>赤い玉</small></h3>
+          <div id="practice-coms" class="choices" role="group" aria-label="重心"></div>
+          <div id="custom-box" class="knobs"></div>
+          <p class="cs-note">箱の絵は、いま台にのっている景品</p>
+        </section>
+        <section class="cs-group" data-group="arm" role="tabpanel" hidden>
+          <div id="custom-arm" class="knobs"></div>
+        </section>
+        <section class="cs-group" data-group="bar" role="tabpanel" hidden>
+          <p id="custom-box-note" class="cs-note"></p>
+          <div id="custom-bar" class="knobs"></div>
+          <h3>滑り止め</h3>
+          <div id="custom-grips" class="grips"></div>
+        </section>
+        <section class="cs-group" data-group="crane" role="tabpanel" hidden>
+          <div id="custom-crane" class="knobs"></div>
+          <p class="cs-note">カスタム中は「お手本」で、クレーンが自動で1手打って見せる（何通りか試して、一番進む手）</p>
+        </section>
+      </div>
+      <footer class="cs-foot">
+        <button id="custom-reset" class="secondary" type="button">初期に戻す</button>
+        <button id="custom-apply" class="primary" type="button">台に反映</button>
+        <p class="cs-note">初期値はお店の設定と同じ。閉じても台に反映し、箱は初めの位置に戻る</p>
+      </footer>
     </div>
-    <p class="shelf-note">初期値はお店の設定と同じ。閉じると台に反映して、箱は初めの位置に戻る。箱の絵は、いま台にのっている景品。赤い丸が重心</p>
-    <p class="shelf-note">カスタム中は「お手本」で、クレーンが自動で1手打って見せる（何通りか試して、一番進む手）</p>
   </dialog>
 
   <dialog id="timer" class="sheet" aria-labelledby="timer-title">
