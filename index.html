@@ -21,10 +21,58 @@
   <link rel="apple-touch-icon" href="./icon-180.png">
   <link rel="manifest" href="./manifest.webmanifest">
   <meta name="apple-mobile-web-app-title" content="クレーン生活">
-  <script type="module" crossorigin src="./assets/index-B2ZvzR08.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-DCpsiD7s.css">
+  <script type="module" crossorigin src="./assets/index-clrxWoxg.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-C1t2nwE7.css">
 </head>
 <body>
+  <!-- ホーム（初期画面。src/ui/home.ts）：入口は クレーンゲーム・メダルゲーム・ビデオゲーム -->
+  <dialog id="home" class="home fs" aria-label="クレーン生活" data-panel="main">
+    <div class="home-sky" aria-hidden="true"><i class="home-aurora"></i><i class="home-floor"></i><i class="home-spark s1"></i><i class="home-spark s2"></i><i class="home-spark s3"></i><i class="home-spark s4"></i><i class="home-spark s5"></i></div>
+    <section class="home-panel home-main">
+      <header class="home-top">
+        <button class="home-pill home-wallet" type="button" data-act="wallet" aria-label="所持金"><span class="home-yen">¥</span><b class="home-money">3,000</b></button>
+        <span class="home-pill home-medal" aria-label="メダル"><i class="home-coin" aria-hidden="true"></i><b class="home-medals">0</b></span>
+        <button class="home-icon" type="button" data-act="settings" aria-label="設定"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8.6a3.4 3.4 0 1 0 0 6.8 3.4 3.4 0 0 0 0-6.8Zm8.2 4.7-1.8-.3a6.6 6.6 0 0 1-.6 1.5l1 1.5-1.8 1.8-1.5-1a6.6 6.6 0 0 1-1.5.6l-.3 1.8h-2.6l-.3-1.8a6.6 6.6 0 0 1-1.5-.6l-1.5 1-1.8-1.8 1-1.5a6.6 6.6 0 0 1-.6-1.5l-1.8-.3v-2.6l1.8-.3c.1-.5.3-1 .6-1.5l-1-1.5 1.8-1.8 1.5 1c.5-.3 1-.5 1.5-.6l.3-1.8h2.6l.3 1.8c.5.1 1 .3 1.5.6l1.5-1 1.8 1.8-1 1.5c.3.5.5 1 .6 1.5l1.8.3v2.6Z"/></svg></button>
+      </header>
+      <div class="home-logo">
+        <p class="home-kicker"><span>NIGHT ARCADE</span></p>
+        <h1><span class="home-l1">クレーン</span><span class="home-l2">生活</span></h1>
+        <p class="home-sub">物理で動く、夜のゲームセンター</p>
+      </div>
+      <nav class="home-doors" aria-label="入口">
+        <button class="door" type="button" data-door="crane" style="--ac: #ff5fb8; --ac2: #ff9fd6">
+          <span class="door-art" aria-hidden="true"></span>
+          <span class="door-text"><small>PRIZE GAME</small><b>クレーンゲーム</b><span>ぬいぐるみ・フック・橋渡しなど10台</span></span>
+          <span class="door-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></span>
+        </button>
+        <button class="door" type="button" data-door="medal" style="--ac: #ffd23f; --ac2: #ffe999">
+          <span class="door-art" aria-hidden="true"></span>
+          <span class="door-text"><small>MEDAL GAME</small><b>メダルゲーム</b><span>メダル落とし・お宝タワー</span></span>
+          <span class="door-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></span>
+        </button>
+        <button class="door" type="button" data-door="video" style="--ac: #5fdcff; --ac2: #b5f0ff">
+          <span class="door-art" aria-hidden="true"></span>
+          <span class="door-text"><small>VIDEO GAME</small><b>ビデオゲーム</b><span>リバーシ・数独・エアホッケーなど6本</span></span>
+          <span class="door-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></span>
+        </button>
+      </nav>
+      <footer class="home-foot">
+        <button type="button" data-act="shelf">棚 <b class="home-shelf">0</b></button>
+        <i aria-hidden="true"></i>
+        <button type="button" data-act="exchange">交換所</button>
+      </footer>
+    </section>
+    <section class="home-panel home-video" aria-label="ビデオゲーム">
+      <header class="home-top">
+        <button class="home-back" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>ホーム</button>
+        <span class="home-pill home-medal" aria-label="メダル"><i class="home-coin" aria-hidden="true"></i><b class="home-medals">0</b></span>
+      </header>
+      <h2 class="vg-title"><small>VIDEO GAME</small>ビデオゲーム</h2>
+      <p class="vg-note">1ゲーム ¥100。勝つ・クリアでメダル</p>
+      <div class="vg-list"></div>
+    </section>
+  </dialog>
+
   <div id="app">
     <header class="hud">
       <button id="wallet-open" class="wallet" type="button" aria-haspopup="dialog" aria-label="所持金（押すと借金）">
@@ -42,6 +90,7 @@
     <main id="stage" class="stage">
       <div id="loading" class="loading" role="status"><span class="spinner" aria-hidden="true"></span><span id="loading-text">台を準備中…</span></div>
       <div class="machine-bar">
+        <button id="home-open" class="home-open" type="button" aria-label="ホームへ"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5h-5v5H5a1 1 0 0 1-1-1Z"/></svg></button>
         <button id="machine-open" class="machine-pick" type="button" aria-haspopup="dialog">
           <span class="pick-now"><small>いまの台</small><b class="pick-name"></b></span><small class="pick-note" hidden></small><span class="pick-change" aria-hidden="true">台を変える ▸</span>
         </button>
@@ -124,35 +173,6 @@
     <div class="shelf-head"><h2 id="machine-title">台を選ぶ</h2><button class="chip pick-close" type="button">閉じる</button></div>
     <p class="pick-rotation"></p>
     <div class="pick-list"></div>
-  </dialog>
-
-  <dialog id="reversi" class="sheet reversi-sheet" aria-labelledby="rv-title">
-    <div class="shelf-head"><h2 id="rv-title">リバーシ</h2><span id="rv-record" class="rv-record"></span><button id="rv-close" class="chip" type="button">閉じる</button></div>
-    <div class="rv-score">
-      <div id="rv-you" class="rv-side"><i class="rv-chip black"></i><span>あなた</span><b id="rv-black">2</b></div>
-      <div id="rv-cpu" class="rv-side"><b id="rv-white">2</b><span>CPU</span><i class="rv-chip white"></i></div>
-    </div>
-    <div class="rv-frame">
-      <div id="rv-board" class="rv-board"></div>
-      <div id="rv-banner" class="rv-banner" hidden><b></b><span></span><small></small></div>
-    </div>
-    <p id="rv-status" class="rv-status" aria-live="polite"></p>
-    <div class="rv-levels" role="radiogroup" aria-label="CPU の強さ">
-      <button type="button" role="radio" data-level="easy"><b>よわい</b><small></small></button>
-      <button type="button" role="radio" data-level="normal"><b>ふつう</b><small></small></button>
-      <button type="button" role="radio" data-level="hard"><b>つよい</b><small></small></button>
-    </div>
-    <div class="sheet-actions rv-actions">
-      <button id="rv-start" class="primary" type="button"><b>スタート</b><small></small></button>
-      <button id="rv-quit" class="secondary" type="button" hidden>やめる</button>
-    </div>
-    <div class="rv-foot">
-      <p class="shelf-note">相手の石をはさむと自分の色。石の多い方が勝ち。</p>
-      <div class="rv-opts">
-        <label class="check"><input id="rv-hints" type="checkbox" checked> 置ける所を出す</label>
-        <label class="check"><input id="rv-grades" type="checkbox" checked> 手の評価を出す</label>
-      </div>
-    </div>
   </dialog>
 
   <dialog id="sound" class="sheet" aria-labelledby="sound-title">

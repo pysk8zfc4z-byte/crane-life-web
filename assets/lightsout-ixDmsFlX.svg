@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 210">
+  <defs>
+    <radialGradient id="on" cx="50%" cy="42%" r="65%">
+      <stop offset="0" stop-color="#fffaf0"/>
+      <stop offset="0.2" stop-color="#ffeab0"/>
+      <stop offset="0.5" stop-color="#ffc356"/>
+      <stop offset="0.85" stop-color="#ff9126"/>
+      <stop offset="1" stop-color="#e8660e"/>
+    </radialGradient>
+    <linearGradient id="off" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#261f48"/>
+      <stop offset="1" stop-color="#100c24"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffdc8c" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#fff8e0"/>
+      <stop offset="1" stop-color="#ffdc8c" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="bg" cx="50%" cy="0%" r="90%">
+      <stop offset="0" stop-color="#ffb547" stop-opacity="0.22"/>
+      <stop offset="0.6" stop-color="#ffb547" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+    <symbol id="t" viewBox="0 0 30 30"><rect width="30" height="30" rx="7" fill="url(#off)"/><rect x="2.5" y="1.5" width="25" height="12" rx="6" fill="#fff" opacity="0.07"/></symbol>
+    <symbol id="l" viewBox="0 0 30 30"><rect width="30" height="30" rx="7" fill="url(#on)"/><rect x="2.5" y="1.5" width="25" height="12" rx="6" fill="#fff" opacity="0.25"/></symbol>
+  </defs>
+  <rect width="280" height="210" fill="#0b0818"/>
+  <rect width="280" height="210" fill="url(#bg)"/>
+  <!-- 盤 -->
+  <rect x="49" y="14" width="182" height="182" rx="14" fill="#130f2c" stroke="#ffbe64" stroke-opacity="0.25"/>
+  <g transform="translate(-16 -6)">
+  <!-- 点いたマスの光（ぼかした下地） -->
+  <g fill="#ff9a2e" filter="url(#glow)" opacity="0.85">
+    <rect x="107" y="28" width="30" height="30" rx="7"/><rect x="73" y="62" width="30" height="30" rx="7"/>
+    <rect x="141" y="62" width="30" height="30" rx="7"/><rect x="107" y="96" width="30" height="30" rx="7"/>
+    <rect x="209" y="96" width="30" height="30" rx="7"/><rect x="175" y="130" width="30" height="30" rx="7"/>
+    <rect x="73" y="164" width="30" height="30" rx="7"/><rect x="141" y="164" width="30" height="30" rx="7"/>
+  </g>
+  <!-- 5×5 のマス（行ごと） -->
+  <g>
+    <use href="#t" x="73" y="28" width="30" height="30"/><use href="#l" x="107" y="28" width="30" height="30"/><use href="#t" x="141" y="28" width="30" height="30"/><use href="#t" x="175" y="28" width="30" height="30"/><use href="#t" x="209" y="28" width="30" height="30"/>
+    <use href="#l" x="73" y="62" width="30" height="30"/><use href="#t" x="107" y="62" width="30" height="30"/><use href="#l" x="141" y="62" width="30" height="30"/><use href="#t" x="175" y="62" width="30" height="30"/><use href="#t" x="209" y="62" width="30" height="30"/>
+    <use href="#t" x="73" y="96" width="30" height="30"/><use href="#l" x="107" y="96" width="30" height="30"/><use href="#t" x="141" y="96" width="30" height="30"/><use href="#t" x="175" y="96" width="30" height="30"/><use href="#l" x="209" y="96" width="30" height="30"/>
+    <use href="#t" x="73" y="130" width="30" height="30"/><use href="#t" x="107" y="130" width="30" height="30"/><use href="#t" x="141" y="130" width="30" height="30"/><use href="#l" x="175" y="130" width="30" height="30"/><use href="#t" x="209" y="130" width="30" height="30"/>
+    <use href="#l" x="73" y="164" width="30" height="30"/><use href="#t" x="107" y="164" width="30" height="30"/><use href="#l" x="141" y="164" width="30" height="30"/><use href="#t" x="175" y="164" width="30" height="30"/><use href="#t" x="209" y="164" width="30" height="30"/>
+  </g>
+  <!-- 押したマスから伸びる十字の光と輪 -->
+  <g opacity="0.9">
+    <rect x="73" y="74" width="98" height="6" rx="3" fill="url(#beam)"/>
+    <rect x="73" y="74" width="98" height="6" rx="3" fill="url(#beam)" transform="rotate(90 122 77)"/>
+    <rect x="102" y="57" width="40" height="40" rx="10" fill="none" stroke="#fff1c4" stroke-width="2" opacity="0.7"/>
+  </g>
+  </g>
+</svg>
