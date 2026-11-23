@@ -21,8 +21,8 @@
   <link rel="apple-touch-icon" href="./icon-180.png">
   <link rel="manifest" href="./manifest.webmanifest">
   <meta name="apple-mobile-web-app-title" content="クレーン生活">
-  <script type="module" crossorigin src="./assets/index-ZpUaqODU.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-D_A3D4QG.css">
+  <script type="module" crossorigin src="./assets/index-WTG-fKLn.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DVERNeRt.css">
 </head>
 <body>
   <!-- ホーム（初期画面。src/ui/home.ts）：入口は クレーンゲーム・メダルゲーム・ビデオゲーム -->
@@ -79,7 +79,7 @@
         <span class="wallet-main"><span class="yen">¥</span><strong id="money">3,000</strong></span>
         <small id="debt" class="debt" hidden></small>
       </button>
-      <div class="credits" role="group" aria-label="残りプレイ回数"><span>残</span><strong id="credits">0</strong><span>回</span></div>
+      <div class="credits" role="group" aria-label="残りプレイ回数"><span>残</span><strong id="credits">0</strong><span id="credits-unit">回</span></div>
       <nav>
         <button id="exchange-open" class="chip" type="button" aria-haspopup="dialog">交換所</button>
         <button id="shelf-open" class="chip" type="button">棚 <b id="shelf-count">0</b></button>
@@ -264,7 +264,7 @@
     <div class="shelf-head"><h2 id="help-title">遊び方</h2><button id="help-close" class="chip" type="button">閉じる</button></div>
     <ol class="howto">
       <li data-kinds="hook bridge tako plush rod timer"><b>コインを入れる</b><small>¥100で1回・¥500で6回</small></li>
-      <li data-kinds="pusher tower croon"><b>コインを入れる</b><small>¥100でメダル10枚（¥500で60枚）。メダルはメダル落とし・お宝タワー・3段クルーンで共通</small></li>
+      <li data-kinds="pusher tower croon"><b>コインを入れる</b><small>¥100でメダル10枚分（¥500で60枚分）のクレジット。投入する時に、手元のメダルが足りなければ1回分ずつメダル10枚に替わる。メダルはメダル落とし・お宝タワー・3段クルーンで共通</small></li>
       <li data-kinds="hook bridge tako plush rod"><b><i class="dot dot-x"></i>緑（→）を押している間、右へ</b><small>離すと止まる。やり直しはできない</small></li>
       <li data-kinds="hook bridge tako plush"><b><i class="dot dot-z"></i>オレンジ（↑）を押している間、奥へ</b><small>離すとクレーンが下がる</small></li>
       <li data-kinds="hook"><b>フック台：リングをフックに掛ける</b><small>板が持ち上がって、景品が落ちる</small></li>
@@ -285,7 +285,8 @@
     </ol>
     <ul class="howto-notes">
       <li>景品が変な所で止まったら「店員さんを呼ぶ」（無料）</li>
-      <li>同じ景品で外れが8回つづくと、店員さんが1回サービス（ボタンの下の丸がたまる）。1日の最初にも1回サービス</li>
+      <li data-kinds="hook bridge tako plush rod timer">同じ景品で外れが8回つづくと、店員さんが1回サービス（ボタンの下の丸がたまる）</li>
+      <li>1日の最初に1回サービス（無料で1回遊べる）</li>
       <li>買取の値段は毎日かわる</li>
       <li>お金も景品もなくなったら、1日1回お小遣い（0:00 に次の分）</li>
       <li>所持金を押すと借金できる（¥3,000ずつ・利息なし）。返すのも同じ所から</li>
