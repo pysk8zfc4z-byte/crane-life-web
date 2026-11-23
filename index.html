@@ -21,8 +21,8 @@
   <link rel="apple-touch-icon" href="./icon-180.png">
   <link rel="manifest" href="./manifest.webmanifest">
   <meta name="apple-mobile-web-app-title" content="クレーン生活">
-  <script type="module" crossorigin src="./assets/index-DIlx1CSC.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-BSGLD8hA.css">
+  <script type="module" crossorigin src="./assets/index-ZpUaqODU.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-D_A3D4QG.css">
 </head>
 <body>
   <!-- ホーム（初期画面。src/ui/home.ts）：入口は クレーンゲーム・メダルゲーム・ビデオゲーム -->
@@ -42,12 +42,12 @@
       <nav class="home-doors" aria-label="入口">
         <button class="door" type="button" data-door="crane" style="--ac: #ff5fb8; --ac2: #ff9fd6">
           <span class="door-art" aria-hidden="true"></span>
-          <span class="door-text"><small>PRIZE GAME</small><b>クレーンゲーム</b><span>ぬいぐるみ・フック・橋渡しなど10台</span></span>
+          <span class="door-text"><small>PRIZE GAME</small><b>クレーンゲーム</b><span>ぬいぐるみ・フック・橋渡しなど9台</span></span>
           <span class="door-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></span>
         </button>
         <button class="door" type="button" data-door="medal" style="--ac: #ffd23f; --ac2: #ffe999">
           <span class="door-art" aria-hidden="true"></span>
-          <span class="door-text"><small>MEDAL GAME</small><b>メダルゲーム</b><span>メダル落とし・お宝タワー</span></span>
+          <span class="door-text"><small>MEDAL GAME</small><b>メダルゲーム</b><span>メダル落とし・3段クルーン・お宝タワー</span></span>
           <span class="door-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></span>
         </button>
         <button class="door" type="button" data-door="video" style="--ac: #5fdcff; --ac2: #b5f0ff">
@@ -62,7 +62,7 @@
         <button type="button" data-act="exchange">交換所</button>
       </footer>
     </section>
-    <section class="home-panel home-video" aria-label="ビデオゲーム">
+    <section class="home-panel home-video" aria-label="一覧">
       <header class="home-top">
         <button class="home-back" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>ホーム</button>
         <span class="home-pill home-medal" aria-label="メダル"><i class="home-coin" aria-hidden="true"></i><b class="home-medals">0</b></span>
@@ -166,7 +166,7 @@
       <button id="exchange-close" class="chip" type="button">閉じる</button>
     </div>
     <div id="exchange-items" class="shelf-items exchange-items"></div>
-    <p class="shelf-note">メダルはメダル落とし・お宝タワーで増やせる（100円で10枚）。メダルは円に戻らない</p>
+    <p class="shelf-note">メダルはメダル落とし・お宝タワー・3段クルーンで増やせる（100円で10枚）。メダルは円に戻らない</p>
   </dialog>
 
   <dialog id="machine-sheet" class="sheet" aria-labelledby="machine-title">
@@ -263,8 +263,8 @@
   <dialog id="help" class="sheet" aria-labelledby="help-title">
     <div class="shelf-head"><h2 id="help-title">遊び方</h2><button id="help-close" class="chip" type="button">閉じる</button></div>
     <ol class="howto">
-      <li data-kinds="hook bridge tako plush rod timer croon"><b>コインを入れる</b><small>¥100で1回・¥500で6回</small></li>
-      <li data-kinds="pusher tower"><b>コインを入れる</b><small>¥100でメダル10枚（¥500で60枚）。メダルはメダル落としとお宝タワーで共通</small></li>
+      <li data-kinds="hook bridge tako plush rod timer"><b>コインを入れる</b><small>¥100で1回・¥500で6回</small></li>
+      <li data-kinds="pusher tower croon"><b>コインを入れる</b><small>¥100でメダル10枚（¥500で60枚）。メダルはメダル落とし・お宝タワー・3段クルーンで共通</small></li>
       <li data-kinds="hook bridge tako plush rod"><b><i class="dot dot-x"></i>緑（→）を押している間、右へ</b><small>離すと止まる。やり直しはできない</small></li>
       <li data-kinds="hook bridge tako plush"><b><i class="dot dot-z"></i>オレンジ（↑）を押している間、奥へ</b><small>離すとクレーンが下がる</small></li>
       <li data-kinds="hook"><b>フック台：リングをフックに掛ける</b><small>板が持ち上がって、景品が落ちる</small></li>
@@ -273,7 +273,7 @@
       <li data-kinds="plush"><b>ぬいぐるみ・3本爪：好きな1体をつかんで穴へ運ぶ</b><small>1体ずつ重いところ（重心）が違う。重いところの近くをつかむと持ち上がる。2本アームは前後を合わせる。左手前の穴に落ちれば取れる</small></li>
       <li data-kinds="rod"><b>棒通し：吊るした棒を穴に通す</b><small>オレンジを離すと棒が落ちる。真ん中の穴に通れば景品</small></li>
       <li data-kinds="timer"><b>ぴったりストップ：目標の秒数で止める</b><small>緑で計り始め、もう一度押して止める。目標の秒数ぴったりで当たり（目標は札から変えられる）</small></li>
-      <li data-kinds="croon"><b>3段クルーン：緑で玉を1個入れる</b><small>100円で玉1個。光るゲートの所から皿に入り、赤い穴に落ちると下の皿へ。3段続けて抜ければ景品（どの穴も同じ確率で、1段 1/3・3段で約 1/27）</small></li>
+      <li data-kinds="croon"><b>3段クルーン：緑でメダル1枚、玉を1個入れる</b><small>光るゲートの所から皿に入り、赤い穴に落ちると下の皿へ。3段続けて抜ければメダル25枚（どの穴も同じ確率で、1段 1/3・3段で約 1/27。戻りは約93%）。皿の上の玉は6個まで。景品は出ない：メダルは上の「交換所」で景品に替える</small></li>
       <li data-kinds="tower"><b>BET を選んで、緑で玉を1発</b><small>右下の札で 1・3・5・10 枚。動かせる玉は2個まで</small></li>
       <li data-kinds="tower"><b>玉は溝を行き来して、正面のポケットへ</b><small>ポケットの列は回っている。溝の縁が緑の段はゆっくり回る狙い目。窓が光って「カッ、カッ」と鳴ったら入るかどうかの瀬戸際</small></li>
       <li data-kinds="tower"><b>UP で上の段へ、×数字はメダル</b><small>×数字・×? は 賭けた数×数字（1段目の ×1 は賭けた分がもどる）。3段目の HOLD は玉が残って口が閉じ、チャンスに入りやすくなる</small></li>
@@ -281,7 +281,7 @@
       <li data-kinds="pusher"><b>メダル落とし：緑でメダルを1枚落とす（押しっぱなしで連射）</b><small>100円でメダル10枚。投入口は左右に動く。押している間は続けて入る（速いぶん、1枚あたりの戻りは少し下がる）。メダルの山の上の色玉が手前の穴に落ちるとリールが回り、3つ揃えばメダル5枚（金・虹の玉は14枚）。揃いやすさは 青＜緑＜赤＜金＜虹（虹は必ず777）。7で揃うと77%ループ、ほかの奇数は50%ループ、偶数は単発。保留は4つまで、色が強いほどチャンス（白→青→緑→赤→虹）。リーチはノーマル→スーパー→全回転の順に熱い。もちねこが動く・光るとチャンス、落ちた瞬間の「キュイン」は当たり。揃うと押し台の上にもメダルが降る（8枚・連チャン20枚・金40枚）。投入口が真ん中（赤い印のある金の門の間）を通る時に入れるとチャッカーに入って抽選が1回（保留は色玉と別に4つ）。ループ（50%・77%）が終わるとクルーンチャンス：リールの箱の上の皿に玉が入り、JPの穴に入れば奥の看板のジャックポットを全部（ほかの穴は +10枚・+3枚・はずれ）。入れ続けると盤に大メダル・カプセル・メダルタワーが出てくる。手前の縁から落とせばメダル（「OUT」の所に落ちても手元へ入る。メダルタワーは「もどる」の前に出る）。カプセルの中身はメダル・フィーバー・クルーンチャンスのどれか。ループ中・メダルの雨の間は押し台が暴れる（フィーバー）。音と光が消えたらフリーズ、明けると全回転で必ず777。手前の縁から落ちたメダルは手元に戻る（細い「OUT」の筋だけ戻らない）。盤の手前の両角は横落ちの口で、壁ぎわを流れて角から落ちたメダルは戻らない。景品は出ない：メダルは上の「交換所」で景品に替える</small></li>
       <li data-kinds="pusher"><b>オート：自動でメダルを入れる</b><small>右下の「オート」で入り切り。約1秒ごとに投入口のいまの位置へ1枚（戻りは手で押す時と同じ）。メダルとクレジットが無くなると止まる。新しいコインは入れない</small></li>
       <li data-kinds="pusher" class="odds-item"><b>確率の解析</b><div id="pusher-odds" class="odds"></div></li>
-      <li data-kinds="hook bridge tako plush rod timer croon"><b>光った取り出し口をタップ</b><small>棚に飾るか、売ってお金にする</small></li>
+      <li data-kinds="hook bridge tako plush rod timer"><b>光った取り出し口をタップ</b><small>棚に飾るか、売ってお金にする</small></li>
     </ol>
     <ul class="howto-notes">
       <li>景品が変な所で止まったら「店員さんを呼ぶ」（無料）</li>
