@@ -21,8 +21,8 @@
   <link rel="apple-touch-icon" href="./icon-180.png">
   <link rel="manifest" href="./manifest.webmanifest">
   <meta name="apple-mobile-web-app-title" content="クレーン生活">
-  <script type="module" crossorigin src="./assets/index-DnWwuo-1.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-CPWKMSYD.css">
+  <script type="module" crossorigin src="./assets/index-C1MDFKYK.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CbfPJqqi.css">
 </head>
 <body>
   <div id="app">
@@ -68,7 +68,7 @@
       <div class="coins">
         <button id="coin-100" class="coin" type="button"><span>¥100</span><small>1回</small></button>
         <button id="coin-500" class="coin coin-bulk" type="button"><span>¥500</span><small>6回</small></button>
-        <button id="staff" class="staff" type="button">店員さんを呼ぶ</button>
+        <button id="staff" class="staff" type="button"><span>店員さんを呼ぶ</span><small id="service" class="service" hidden></small></button>
       </div>
       <div class="buttons">
         <button id="btn-x" class="arcade arcade-x" type="button" aria-label="右へ（押している間だけ動く）" disabled>
@@ -104,6 +104,7 @@
       </div>
       <button id="shelf-close" class="chip" type="button">閉じる</button>
     </div>
+    <p id="title-line" class="title-line"></p>
     <div id="shelf-items" class="shelf-items"></div>
     <div id="book" class="book" hidden></div>
     <p class="shelf-note" id="shelf-note">買取の値段は毎日かわる</p>
@@ -233,6 +234,7 @@
     </ol>
     <ul class="howto-notes">
       <li>景品が変な所で止まったら「店員さんを呼ぶ」（無料）</li>
+      <li>同じ景品で外れが8回つづくと、店員さんが1回サービス（ボタンの下の丸がたまる）。1日の最初にも1回サービス</li>
       <li>買取の値段は毎日かわる</li>
       <li>お金も景品もなくなったら、1日1回お小遣い（0:00 に次の分）</li>
       <li>所持金を押すと借金できる（¥3,000ずつ・利息なし）。返すのも同じ所から</li>
