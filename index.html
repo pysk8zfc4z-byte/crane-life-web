@@ -21,8 +21,8 @@
   <link rel="apple-touch-icon" href="./icon-180.png">
   <link rel="manifest" href="./manifest.webmanifest">
   <meta name="apple-mobile-web-app-title" content="クレーン生活">
-  <script type="module" crossorigin src="./assets/index-9lxDRhLG.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-C9an2-qR.css">
+  <script type="module" crossorigin src="./assets/index-qi2ZdKV9.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-j6gWXqxE.css">
 </head>
 <body>
   <div id="app">
@@ -124,6 +124,32 @@
     <div class="shelf-head"><h2 id="machine-title">台を選ぶ</h2><button class="chip pick-close" type="button">閉じる</button></div>
     <p class="pick-rotation"></p>
     <div class="pick-list"></div>
+  </dialog>
+
+  <dialog id="reversi" class="sheet reversi-sheet" aria-labelledby="rv-title">
+    <div class="shelf-head"><h2 id="rv-title">リバーシ</h2><span id="rv-record" class="rv-record"></span><button id="rv-close" class="chip" type="button">閉じる</button></div>
+    <div class="rv-score">
+      <div id="rv-you" class="rv-side"><i class="rv-chip black"></i><span>あなた</span><b id="rv-black">2</b></div>
+      <div id="rv-cpu" class="rv-side"><b id="rv-white">2</b><span>CPU</span><i class="rv-chip white"></i></div>
+    </div>
+    <div class="rv-frame">
+      <div id="rv-board" class="rv-board"></div>
+      <div id="rv-banner" class="rv-banner" hidden><b></b><span></span><small></small></div>
+    </div>
+    <p id="rv-status" class="rv-status" aria-live="polite"></p>
+    <div class="rv-levels" role="radiogroup" aria-label="CPU の強さ">
+      <button type="button" role="radio" data-level="easy"><b>よわい</b><small></small></button>
+      <button type="button" role="radio" data-level="normal"><b>ふつう</b><small></small></button>
+      <button type="button" role="radio" data-level="hard"><b>つよい</b><small></small></button>
+    </div>
+    <div class="sheet-actions rv-actions">
+      <button id="rv-start" class="primary" type="button"><b>スタート</b><small></small></button>
+      <button id="rv-quit" class="secondary" type="button" hidden>やめる</button>
+    </div>
+    <div class="rv-foot">
+      <p class="shelf-note">相手の石をはさむと自分の色。石の多い方が勝ち。</p>
+      <label class="check"><input id="rv-hints" type="checkbox" checked> 置ける所を出す</label>
+    </div>
   </dialog>
 
   <dialog id="sound" class="sheet" aria-labelledby="sound-title">
