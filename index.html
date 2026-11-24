@@ -21,8 +21,8 @@
   <link rel="apple-touch-icon" href="./icon-180.png">
   <link rel="manifest" href="./manifest.webmanifest">
   <meta name="apple-mobile-web-app-title" content="クレーン生活">
-  <script type="module" crossorigin src="./assets/index-xuS8RH_d.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-CF8sKnlF.css">
+  <script type="module" crossorigin src="./assets/index-28jPr7km.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-2xAPEjot.css">
 </head>
 <body>
   <!-- ホーム（初期画面。src/ui/home.ts）：入口は クレーンゲーム・メダルゲーム・ビデオゲーム -->
@@ -166,7 +166,7 @@
       <button id="exchange-close" class="chip" type="button">閉じる</button>
     </div>
     <div id="exchange-items" class="shelf-items exchange-items"></div>
-    <p class="shelf-note">メダルはメダル落とし・お宝タワー・3段クルーンで増やせる（100円で10枚）。メダルは円に戻らない</p>
+    <p class="shelf-note">メダルはメダルゲームで増やせる。円には戻らない</p>
   </dialog>
 
   <dialog id="machine-sheet" class="sheet" aria-labelledby="machine-title">
@@ -199,7 +199,7 @@
     <section class="parental" aria-labelledby="pm-title">
       <h3 id="pm-title" class="set-head">保護者モード</h3>
       <p id="pm-status" class="pm-status"></p>
-      <p id="pm-note" class="pm-note">1日に遊べる回数と時間を決められます。決めたパスワードで、変更・やめる・今日だけの延長ができます。</p>
+      <p id="pm-note" class="pm-note">1日の回数と時間を決められる（変更はパスワードで）</p>
       <button id="pm-start" class="chip" type="button">パスワードを決めて始める</button>
       <button id="pm-open" class="chip" type="button" hidden>変更する（パスワード）</button>
       <form id="pm-pin" class="pm-form" hidden>
@@ -211,13 +211,13 @@
         <div class="pm-actions"><button type="submit" class="primary">OK</button><button id="pm-pin-cancel" class="chip" type="button">やめる</button></div>
       </form>
       <div id="pm-edit" class="pm-form" hidden>
-        <label for="pm-plays">1日の回数<small>100円で1回分。メダルは10枚で1回、練習の1手も1回</small></label>
+        <label for="pm-plays">1日の回数<small>¥100で1回。メダルは10枚で1回</small></label>
         <select id="pm-plays"></select>
         <label for="pm-minutes">1日の時間<small>画面を開いている時間</small></label>
         <select id="pm-minutes"></select>
         <div class="pm-actions"><button id="pm-change-pin" class="chip" type="button">パスワードを変える</button><button id="pm-turn-off" class="chip" type="button">保護者モードをやめる</button><button id="pm-done" class="chip" type="button">決定</button></div>
       </div>
-      <p class="pm-note">パスワードを忘れた時は、このブラウザのサイトのデータを消すと戻ります（お金・景品も消えます）。</p>
+      <p class="pm-note">忘れたらサイトのデータを消す（お金・景品も消える）</p>
     </section>
   </dialog>
 
@@ -262,34 +262,57 @@
 
   <dialog id="help" class="sheet" aria-labelledby="help-title">
     <div class="shelf-head"><h2 id="help-title">遊び方</h2><button id="help-close" class="chip" type="button">閉じる</button></div>
+    <!-- 遊び方は「入れる → 動かす → 取れる」の短い手順。細かい決まりは「くわしく」（2026-11-24 本人「初心者目線とプロ目線で…出来るだけ文章は少なくしたい」）。
+         店のきまり（今日のサービス・買取・お小遣い・借金）は、それぞれの画面（一言・棚・お金のシート・お金切れの画面）に出るので、ここには並べない -->
     <ol class="howto">
       <li data-kinds="hook bridge tako plush rod timer"><b>コインを入れる</b><small>¥100で1回・¥500で6回</small></li>
-      <li data-kinds="pusher tower croon"><b>コインを入れる</b><small>¥100でメダル10枚分（¥500で60枚分）のクレジット。投入する時に、手元のメダルが足りなければ1回分ずつメダル10枚に替わる。メダルはメダル落とし・お宝タワー・3段クルーンで共通</small></li>
-      <li data-kinds="hook bridge tako plush rod"><b><i class="dot dot-x"></i>緑（→）を押している間、右へ</b><small>離すと止まる。やり直しはできない</small></li>
-      <li data-kinds="hook bridge tako plush"><b><i class="dot dot-z"></i>オレンジ（↑）を押している間、奥へ</b><small>離すとクレーンが下がる</small></li>
-      <li data-kinds="hook"><b>フック台：リングをフックに掛ける</b><small>板が持ち上がって、景品が落ちる</small></li>
-      <li data-kinds="bridge"><b>橋渡し台：アームで箱をずらす</b><small>箱がバーのあいだから落ちる。箱の位置は次の回に残る</small></li>
-      <li data-kinds="tako"><b>たこ焼き台：玉をすくって、赤い穴へ</b><small>カゴの玉をすくうと、たこ焼き器の上で放す。赤い穴に止まれば当たり</small></li>
-      <li data-kinds="plush"><b>ぬいぐるみ・3本爪：好きな1体をつかんで穴へ運ぶ</b><small>1体ずつ重いところ（重心）が違う。重いところの近くをつかむと持ち上がる。2本アームは前後を合わせる。左手前の穴に落ちれば取れる</small></li>
-      <li data-kinds="rod"><b>棒通し：吊るした棒を穴に通す</b><small>オレンジを離すと棒が落ちる。真ん中の穴に通れば景品</small></li>
-      <li data-kinds="timer"><b>ぴったりストップ：目標の秒数で止める</b><small>緑で計り始め、もう一度押して止める。目標の秒数ぴったりで当たり（目標は札から変えられる）</small></li>
-      <li data-kinds="croon"><b>3段クルーン：緑でメダル1枚、玉を1個入れる</b><small>光るゲートの所から皿に入り、赤い穴に落ちると下の皿へ。3段続けて抜ければメダル25枚（どの穴も同じ確率で、1段 1/3・3段で約 1/27。戻りは約93%）。皿の上の玉は6個まで。景品は出ない：メダルは上の「交換所」で景品に替える</small></li>
-      <li data-kinds="tower"><b>BET を選んで、緑で玉を1発</b><small>右下の札で 1・3・5・10 枚。動かせる玉は2個まで</small></li>
-      <li data-kinds="tower"><b>玉は溝を行き来して、正面のポケットへ</b><small>ポケットの列は回っている。溝の縁が緑の段はゆっくり回る狙い目。窓が光って「カッ、カッ」と鳴ったら入るかどうかの瀬戸際</small></li>
-      <li data-kinds="tower"><b>UP で上の段へ、×数字はメダル</b><small>×数字・×? は 賭けた数×数字（1段目の ×1 は賭けた分がもどる）。3段目の HOLD は玉が残って口が閉じ、チャンスに入りやすくなる</small></li>
-      <li data-kinds="tower"><b>チャンスで天井の段、大当たりでメダル</b><small>賭けた数×100枚＋ためたメダル（右の札）。メダルは上の「交換所」で景品に替える</small></li>
-      <li data-kinds="pusher"><b>メダル落とし：緑でメダルを1枚落とす（押しっぱなしで連射）</b><small>100円でメダル10枚。投入口は左右に動く。押している間は続けて入る（速いぶん、1枚あたりの戻りは少し下がる）。メダルの山の上の色玉が手前の穴に落ちるとリールが回り、3つ揃えばメダル5枚（金・虹の玉は14枚）。揃いやすさは 青＜緑＜赤＜金＜虹（虹は必ず777）。7で揃うと77%ループ、ほかの奇数は50%ループ、偶数は単発。保留は4つまで、色が強いほどチャンス（白→青→緑→赤→虹）。リーチはノーマル→スーパー→全回転の順に熱い。もちねこが動く・光るとチャンス、落ちた瞬間の「キュイン」は当たり。揃うと押し台の上にもメダルが降る（8枚・連チャン20枚・金40枚）。投入口が真ん中（赤い印のある金の門の間）を通る時に入れるとチャッカーに入って抽選が1回（保留は色玉と別に4つ）。ループ（50%・77%）が終わるとクルーンチャンス：リールの箱の上の皿に玉が入り、JPの穴に入れば奥の看板のジャックポットを全部（ほかの穴は +10枚・+3枚・はずれ）。入れ続けると盤に大メダル・カプセル・メダルタワーが出てくる。手前の縁から落とせばメダル（「OUT」の所に落ちても手元へ入る。メダルタワーは「もどる」の前に出る）。カプセルの中身はメダル・フィーバー・クルーンチャンスのどれか。ループ中・メダルの雨の間は押し台が暴れる（フィーバー）。音と光が消えたらフリーズ、明けると全回転で必ず777。手前の縁から落ちたメダルは手元に戻る（細い「OUT」の筋だけ戻らない）。盤の手前の両角は横落ちの口で、壁ぎわを流れて角から落ちたメダルは戻らない。景品は出ない：メダルは上の「交換所」で景品に替える</small></li>
-      <li data-kinds="pusher"><b>オート：自動でメダルを入れる</b><small>右下の「オート」で入り切り。約1秒ごとに投入口のいまの位置へ1枚（戻りは手で押す時と同じ）。メダルとクレジットが無くなると止まる。新しいコインは入れない</small></li>
-      <li data-kinds="pusher" class="odds-item"><b>確率の解析</b><div id="pusher-odds" class="odds"></div></li>
-      <li data-kinds="hook bridge tako plush rod timer"><b>光った取り出し口をタップ</b><small>棚に飾るか、売ってお金にする</small></li>
+      <li data-kinds="pusher tower croon"><b>コインを入れる</b><small>¥100でメダル10枚分（メダルの台で共通）</small></li>
+      <li data-kinds="hook bridge tako plush rod"><b><i class="dot dot-x"></i>緑（→）：押している間、右へ</b><small>離すと止まる</small></li>
+      <li data-kinds="hook bridge tako plush"><b><i class="dot dot-z"></i>オレンジ（↑）：押している間、奥へ</b><small>離すと下がる</small></li>
+      <li data-kinds="hook"><b>リングをフックに掛ける</b><small>板が上がって、景品が落ちる</small></li>
+      <li data-kinds="bridge"><b>アームで箱をずらして落とす</b><small>箱の位置は次の回に残る</small></li>
+      <li data-kinds="tako"><b>玉をすくって、赤い穴へ</b><small>赤い穴に止まれば当たり</small></li>
+      <li data-kinds="plush"><b>1体つかんで、左手前の穴へ</b><small>重いところの近くをつかむ</small></li>
+      <li data-kinds="rod"><b>棒を真ん中の穴に通す</b><small>オレンジを離すと棒が落ちる</small></li>
+      <li data-kinds="timer"><b>緑で計り始め、もう一度で止める</b><small>目標ぴったりで当たり（目標は札で変える）</small></li>
+      <li data-kinds="pusher"><b>緑でメダルを落とす</b><small>押しっぱなしで連射・「オート」で自動</small></li>
+      <li data-kinds="pusher"><b>色玉が落ちるとリール</b><small>3つ揃えばメダル</small></li>
+      <li data-kinds="croon"><b>緑でメダル1枚、玉を1個</b><small>赤い穴を3段抜けるとメダル25枚</small></li>
+      <li data-kinds="tower"><b>BET を選んで、緑で玉を1発</b><small>UP で上の段へ・×数字でメダル</small></li>
+      <li data-kinds="tower"><b>チャンスで天井の段へ</b><small>大当たりは 賭けた数×100枚＋ためたメダル</small></li>
+      <li data-kinds="hook bridge tako plush rod timer"><b>光った取り出し口をタップ</b><small>棚に飾るか、売る</small></li>
+      <li data-kinds="pusher tower croon"><b>メダルは「交換所」で景品に</b><small>台から景品は出ない</small></li>
     </ol>
+    <div class="howto-more">
+      <details data-kinds="plush"><summary>くわしく</summary><ul>
+        <li>1体ずつ重いところが違う</li>
+        <li>2本アームは前後も合わせる</li>
+      </ul></details>
+      <details data-kinds="pusher"><summary>くわしく</summary><ul>
+        <li>揃えばメダル5枚（金・虹の玉は14枚）。揃いやすさは 青＜緑＜赤＜金＜虹</li>
+        <li>7で揃うと77%ループ、ほかの奇数は50%ループ</li>
+        <li>保留は4つまで。色が強いほどチャンス（白→青→緑→赤→虹）</li>
+        <li>リーチは ノーマル→スーパー→全回転 の順に熱い。もちねこ・「キュイン」もチャンス</li>
+        <li>真ん中の金の門で入れるとチャッカー（抽選1回）</li>
+        <li>ループが終わるとクルーンチャンス。JP の穴でジャックポット</li>
+        <li>大メダル・カプセル・メダルタワーは、手前から落とすとメダル</li>
+        <li>手前から落ちたメダルは戻る（OUT の筋と両角の口は戻らない）</li>
+        <li>音と光が消えたらフリーズ。明けると必ず777</li>
+      </ul><div id="pusher-odds" class="odds"></div></details>
+      <details data-kinds="croon"><summary>くわしく</summary><ul>
+        <li>光るゲートの所から入る。どの穴も同じ確率（1段 1/3）</li>
+        <li>皿の上の玉は6個まで</li>
+      </ul></details>
+      <details data-kinds="tower"><summary>くわしく</summary><ul>
+        <li>BET は右下の札で 1・3・5・10枚。動かせる玉は2個まで</li>
+        <li>溝の縁が緑の段はゆっくり回る狙い目</li>
+        <li>×? は入ってから決まる。1段目の ×1 は賭けた分がもどる</li>
+        <li>3段目の HOLD が埋まると、チャンスに入りやすい</li>
+      </ul></details>
+    </div>
     <ul class="howto-notes">
-      <li data-kinds="hook bridge tako plush rod timer">景品が変な所で止まったら「店員さんを呼ぶ」（無料）</li>
-      <li data-kinds="hook bridge tako plush rod timer">同じ景品で外れが8回つづくと、店員さんが1回サービス（ボタンの下の丸がたまる）</li>
-      <li>1日の最初に1回サービス（無料で1回遊べる）</li>
-      <li>買取の値段は毎日かわる</li>
-      <li>お金も景品もなくなったら、1日1回お小遣い（0:00 に次の分）</li>
-      <li>所持金を押すと借金できる（¥3,000ずつ・利息なし）。返すのも同じ所から</li>
+      <li data-kinds="hook bridge tako plush rod timer">景品が引っかかったら「店員さんを呼ぶ」（無料）</li>
+      <li data-kinds="hook bridge tako plush rod timer">外れ8回で1回サービス（ボタンの下の丸）</li>
     </ul>
     <p class="version" id="version"></p>
   </dialog>
@@ -304,7 +327,7 @@
         <div id="custom-slots" class="cs-slots" role="group" aria-label="カスタムの枠"></div>
         <button id="practice-close" class="chip" type="button">閉じる</button>
       </header>
-      <label class="cs-play"><input id="practice-on" type="checkbox"><span class="cs-switch" aria-hidden="true"></span><b>カスタムで遊ぶ</b><small id="cs-play-note">お金は減らない・景品はもらえない</small></label>
+      <label class="cs-play"><input id="practice-on" type="checkbox"><span class="cs-switch" aria-hidden="true"></span><b>カスタムで遊ぶ</b><small id="cs-play-note">お店の設定</small></label>
       <nav class="cs-tabs" role="tablist" aria-label="設定の組">
         <button type="button" role="tab" data-group="box">箱<i></i></button>
         <button type="button" role="tab" data-group="arm">アーム<i></i></button>
@@ -318,7 +341,6 @@
           <h3>重心<small>赤い玉</small></h3>
           <div id="practice-coms" class="choices" role="group" aria-label="重心"></div>
           <div id="custom-box" class="knobs"></div>
-          <p class="cs-note">箱の絵は、いま台にのっている景品</p>
         </section>
         <section class="cs-group" data-group="arm" role="tabpanel" hidden>
           <div id="custom-arm" class="knobs"></div>
@@ -331,13 +353,13 @@
         </section>
         <section class="cs-group" data-group="crane" role="tabpanel" hidden>
           <div id="custom-crane" class="knobs"></div>
-          <p class="cs-note">カスタム中は「お手本」で、クレーンが自動で1手打って見せる（何通りか試して、一番進む手）</p>
+          <p class="cs-note">カスタム中は「お手本」で自動の1手を見られる</p>
         </section>
       </div>
       <footer class="cs-foot">
         <button id="custom-reset" class="secondary" type="button">初期に戻す</button>
         <button id="custom-apply" class="primary" type="button">台に反映</button>
-        <p class="cs-note">初期値はお店の設定と同じ。閉じても台に反映し、箱は初めの位置に戻る</p>
+        <p class="cs-note">閉じても反映。箱は初めの位置に戻る</p>
       </footer>
     </div>
   </dialog>
@@ -375,7 +397,7 @@
       <button id="bank-repay" class="primary" type="button"><b id="bank-repay-word">返す</b><small id="bank-repay-yen">¥3,000</small></button>
       <button id="bank-repay-all" class="chip" type="button" hidden>全部返す</button>
     </div>
-    <p class="shelf-note" id="bank-note">利息なし。返す時は所持金から払う。これまでに借りた合計 ¥0</p>
+    <p class="shelf-note" id="bank-note">利息なし</p>
   </dialog>
 
   <div class="rotate" aria-hidden="true"><p>スマホを縦にしてください</p></div>
