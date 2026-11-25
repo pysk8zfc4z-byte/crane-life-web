@@ -21,8 +21,8 @@
   <link rel="apple-touch-icon" href="./icon-180.png">
   <link rel="manifest" href="./manifest.webmanifest">
   <meta name="apple-mobile-web-app-title" content="クレーン生活">
-  <script type="module" crossorigin src="./assets/index-fJjddtuF.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-BUNic4Ek.css">
+  <script type="module" crossorigin src="./assets/index-BC39MxdE.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-Cs9io78H.css">
 </head>
 <body>
   <!-- ホーム（初期画面。src/ui/home.ts）：入口は クレーンゲーム・メダルゲーム・ビデオゲーム -->
@@ -137,7 +137,7 @@
       <h2 id="reveal-name"></h2>
       <p class="reveal-tries" id="reveal-tries" hidden></p>
       <p class="reveal-note" id="reveal-note"></p>
-      <p class="reveal-price">今日の買取 <strong id="reveal-price"></strong></p>
+      <p class="reveal-price">今日の買取 <strong id="reveal-price"></strong><span id="reveal-bonus" class="reveal-bonus"></span></p>
       <div class="sheet-actions">
         <button id="reveal-keep" class="primary" type="button">棚に飾る</button>
         <button id="reveal-sell" class="secondary" type="button">すぐ売る</button>
@@ -154,6 +154,7 @@
       <button id="shelf-close" class="chip" type="button">閉じる</button>
     </div>
     <p id="title-line" class="title-line"></p>
+    <p id="rank-line" class="rank-line"></p>
     <div id="shelf-items" class="shelf-items"></div>
     <div id="book" class="book" hidden></div>
     <p class="shelf-note" id="shelf-note">買取の値段は毎日かわる</p>
@@ -277,7 +278,7 @@
       <li data-kinds="timer"><b>緑で計り始め、もう一度で止める</b><small>目標ぴったりで当たり（目標は札で変える）</small></li>
       <li data-kinds="pusher"><b>緑でメダルを落とす</b><small>押しっぱなしで連射・「オート」で自動</small></li>
       <li data-kinds="pusher"><b>色玉が落ちるとリール</b><small>3つ揃えばメダル</small></li>
-      <li data-kinds="croon"><b>緑でメダル1枚、玉を1個</b><small>赤い穴を3段抜けるとメダル25枚</small></li>
+      <li data-kinds="croon"><b>緑でメダル1枚、玉を1個</b><small>赤い穴を3段抜けるとメダル40枚</small></li>
       <li data-kinds="tower"><b>BET を選んで、緑で玉を1発</b><small>UP で上の段へ・×数字でメダル</small></li>
       <li data-kinds="tower"><b>チャンスで天井の段へ</b><small>大当たりは 賭けた数×100枚＋ためたメダル</small></li>
       <li data-kinds="hook bridge tako plush rod timer"><b>光った取り出し口をタップ</b><small>棚に飾るか、売る</small></li>
@@ -296,7 +297,7 @@
         <li>真ん中の金の門で入れるとチャッカー（抽選1回）</li>
         <li>ループが終わるとクルーンチャンス。JP の穴でジャックポット</li>
         <li>大メダル・カプセル・メダルタワーは、手前から落とすとメダル</li>
-        <li>手前から落ちたメダルは戻る（OUT の筋と両角の口は戻らない）</li>
+        <li>手前から落ちたメダルは1.5枚になって戻る（OUT の筋と両角の口は戻らない）</li>
         <li>音と光が消えたらフリーズ。明けると必ず777</li>
       </ul><div id="pusher-odds" class="odds"></div></details>
       <details data-kinds="croon"><summary>くわしく</summary><ul>
@@ -306,7 +307,7 @@
       <details data-kinds="tower"><summary>くわしく</summary><ul>
         <li>BET は右下の札で 1・3・5・10枚。動かせる玉は2個まで</li>
         <li>溝の縁が緑の段はゆっくり回る狙い目</li>
-        <li>×? は入ってから決まる。1段目の ×1 は賭けた分がもどる</li>
+        <li>×? は入ってから決まる。1段目の ×1 は賭けた分がもどる、×2 は倍</li>
         <li>3段目の HOLD が埋まると、チャンスに入りやすい</li>
       </ul></details>
     </div>
